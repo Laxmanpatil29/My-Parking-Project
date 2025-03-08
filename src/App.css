@@ -1,0 +1,120 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* navbar css */
+.userlogin{
+  color:#22a7a7;
+  position: fixed;
+  right: 30px;
+  
+}
+.userlogin:hover{
+  color: #369c22;
+  
+}
+
+/* .userlogin{
+  color:#22a7a7;
+  position: fixed;
+  right: 50px;
+  
+}
+.userlogin:hover{
+  color: #369c22;
+  
+} */
+
+
+
+/* form css */
+
+.form{
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 12px 5px #497D74;
+  padding: 10px;
+  text-align: center;
+  position:fixed;
+  top: 80px;
+  left: 330px;
+}
+.btns{
+  display: flex;
+  gap: px;
+  
+}
+.input{
+  height:25px;
+  width: 220px;
+}
+.loginbtn{
+  background-color:#000957;
+  color: white;
+  width:130px;
+  height: 40px;
+  border-radius: 5px;
+  /* margin-left: 50px; */
+  /* margin-bottom: 20px; */
+}
+.signupbtn{
+  background-color:white;
+  color:black;
+  width: 130px;
+  height:40PX ;
+  border-radius: 5px;
+}
+#loginsuccess{
+  height: 30px;
+  width: 220px;
+  background-color: #000957;
+  color: white;
+  margin-top:10px
+}
+#signupsuccess{
+  height: 30px;
+  width: 220px;
+  background-color: #000957;
+  color: white;
+  margin-top:10px
+}
+

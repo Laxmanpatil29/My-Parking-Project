@@ -1,0 +1,66 @@
+.form{
+    border: 2px solid black;
+    border-radius: 5px;
+    background: linear-gradient(145deg,rgb(62, 89, 116),rgb(104, 196, 118),rgb(222, 226, 105));
+    box-shadow: 5px 5px 12px 5px #497D74;
+    padding: 10px;
+    text-align: center;
+    position:fixed;
+    top: 60px;
+    left: 300px;
+}
+.btns{
+    display: flex;
+    gap: px;
+    
+}
+.input{
+    height:25px;
+    width: 220px;
+}
+.loginbtn{
+    background-color:#000957;
+    color: white;
+    width:110px;
+    border-radius: 5px;
+}
+.signupbtn{
+    background-color:white;
+    color:black;
+    width: 110px;
+    border-radius: 5px;
+}
+#loginsuccess{
+    height: 30px;
+    width: 220px;
+    background-color: #000957;
+    color: white;
+    margin-top:10px
+}
+#signupsuccess{
+    height: 30px;
+    width: 220px;
+    background-color: #000957;
+    color: white;
+    margin-top:10px
+}
+
+/* .userlogin{
+    color:#22a7a7;
+    position: fixed;
+    right: 30px;
+    
+  }
+  .userlogin:hover{
+    color: #369c22;
+    
+  } */
+  .userlogin{
+    text-decoration: none;
+  }
+  
+
+  #signup:hover{
+    background-color: #000957;
+    color: antiquewhite;
+  }
