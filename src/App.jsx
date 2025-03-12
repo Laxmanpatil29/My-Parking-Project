@@ -14,6 +14,7 @@ import { ProviderProfile } from './component/provider/ProviderProfile'
 import { Ui } from './component/user/Ui'
 import { CommonUi } from './component/common/CommonUi'
 import { Navbar } from './component/Navbar'
+import { Booking } from './component/common/Booking'
 // import {SignUp} from './component/common/SignUp'
 
 
@@ -60,6 +61,7 @@ axios.defaults.baseURL="http://localhost:3000"
       <Route path='profile' element={<UserProfile/>}></Route>
       {/* <Route path='login' element={<Login/>}></Route> */}
       <Route path='' element={<Ui/>}></Route>
+      <Route path='book' element={<Booking/>}></Route>
     {/* <Route path='signup' element={<SignUp/>}></Route> */}
     </Route>
 

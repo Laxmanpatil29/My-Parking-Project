@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { WheelLoader } from './WheelLoader'
 
 export const SignUp = () => {
+    
 
 const {register,handleSubmit,formState:{errors}}=useForm()
 
@@ -30,15 +32,18 @@ const validationSchema={
 
     const submitHandler=async(data)=>{
             // data.roleId="67c0091e46b71abdd5484571"
+            
 
             const res=await axios.post("http://localhost:2800/user/signup",data)
             console.log("data is ..",data)
             console.log(res.data)
+            
 
         
         console.log("errors",errors)
     
     }
+
 
   return (
 

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "../assets/Navbar.css"
+// import { WheelLoader } from './common/WheelLoader'
 
 export const Navbar = () => {
+
+  // const [ispageloading, setispageloading] = useState(true)
   return (
   
     
@@ -23,7 +26,7 @@ export const Navbar = () => {
 
           <Link id="login" class="link" to="/login"><i class="fa-solid fa-user"></i> Log in/Sign in </Link>
 
-         
+          {/* {ispageloading===true&& <WheelLoader/>} */}
             </div>
    </nav>
     

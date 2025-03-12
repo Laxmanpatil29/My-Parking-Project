@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import { Outlet } from 'react-router-dom'
 // import ''    
 
-export const UserNavbar = () => {
+export const UserNavbar = ({toggleSidebar}) => {
   return (
     <nav className="app-header navbar navbar-expand bg-body">
 
@@ -12,10 +12,17 @@ export const UserNavbar = () => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <a
-              className="nav-link"
-              data-lte-toggle="sidebar"
+              className="nav-link btn btn-dark"
               href="#"
               role="button"
+              style={{
+                color:"black",
+                padding:"5px 10px",
+                border:"1px solid #ccc",
+                borderRadius:"5px"
+              }}
+
+              onClick={toggleSidebar}
             >
               <i className="bi bi-list" />
             </a>
@@ -41,6 +48,10 @@ export const UserNavbar = () => {
             <a href="#" className="nav-link">
               Services
             </a>
+          </li>
+
+          <li>
+            <Link to="book">Book your spot</Link>
           </li>
           {/* <li>
           <Link id="login" class="usersignup" to="signup"><i class="fa-solid fa-user"></i> Sign up </Link>
