@@ -8,10 +8,10 @@ export const Navbar = () => {
        <img id="logo" src="src/assets/images.jpeg" alt="" />
             <div className="item">
 
-          <Link  class="component" to="/Home">Home</Link>
-          <Link class="component"  to="/About">About</Link>
-          <Link class="component" to="/Services">Services</Link>
-          <Link class="component" to="/Contact">Contact</Link>
+          <Link  class="component" to="/home">Home</Link>
+          <Link class="component"  to="/about">About</Link>
+          <Link class="component" to="/services">Services</Link>
+          <Link class="component" to="/contact">Contact</Link>
 
 
           <form class="search">

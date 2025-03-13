@@ -16,6 +16,8 @@ import { CommonUi } from './component/common/CommonUi'
 import { Navbar } from './component/Navbar'
 import { Booking } from './component/common/Booking'
 import PrivateRoutes from './component/hooks/PrivateRoutes'
+import { CommonUiHome } from './component/CommonUiHome'
+import { CommonUiContact } from './component/COmmonUiContact'
 // import {SignUp} from './component/common/SignUp'
 
 
@@ -48,14 +50,7 @@ axios.defaults.baseURL="http://localhost:3000"
 <CommonUi/>
 
   <Routes>
- 
-    {/* <Route path='/' element={<CommonUi/>}></Route> */}
-     <Route path='/login' element={<Login/>}></Route> 
-  
-    
-    
-  
-  
+
     <Route element={<PrivateRoutes />}>
         <Route path="/user" element={<UserSidebar />}>
           <Route path="profile" element={<UserProfile />} />
