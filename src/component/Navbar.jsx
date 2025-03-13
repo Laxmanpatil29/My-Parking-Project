@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "../assets/Navbar.css"
-// import { WheelLoader } from './common/WheelLoader'
 
 export const Navbar = () => {
-
-  // const [ispageloading, setispageloading] = useState(true)
   return (
-  
-    
    <nav class='nav1' >
        <img id="logo" src="src/assets/images.jpeg" alt="" />
             <div className="item">

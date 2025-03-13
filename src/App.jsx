@@ -15,6 +15,7 @@ import { Ui } from './component/user/Ui'
 import { CommonUi } from './component/common/CommonUi'
 import { Navbar } from './component/Navbar'
 import { Booking } from './component/common/Booking'
+import PrivateRoutes from './component/hooks/PrivateRoutes'
 // import {SignUp} from './component/common/SignUp'
 
 
@@ -44,10 +45,7 @@ axios.defaults.baseURL="http://localhost:3000"
 <body className='layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-open'>
 
 <div className="app-wrapper">
-  {/* <UserSidebar></UserSidebar> */}
-  {/* <Route path='/' element={<Navbar/>}></Route> */}
-  {/* <CommonUi/> */}
-  <Navbar></Navbar>
+<CommonUi/>
 
   <Routes>
  
@@ -56,14 +54,19 @@ axios.defaults.baseURL="http://localhost:3000"
   
     
     
+  
+  
+    <Route element={<PrivateRoutes />}>
+        <Route path="/user" element={<UserSidebar />}>
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="" element={<Ui />} />
+          <Route path="book" element={<Booking />} />
+        </Route>
+      </Route>
+  
+    
 
-    <Route path='/user' element={<UserSidebar/>}>
-      <Route path='profile' element={<UserProfile/>}></Route>
-      {/* <Route path='login' element={<Login/>}></Route> */}
-      <Route path='' element={<Ui/>}></Route>
-      <Route path='book' element={<Booking/>}></Route>
-    {/* <Route path='signup' element={<SignUp/>}></Route> */}
-    </Route>
+
 
     <Route path='/admin' element={<AdminSidebar/>}>
       <Route path='profile' element={<AdminProfile/>}></Route>
@@ -75,7 +78,10 @@ axios.defaults.baseURL="http://localhost:3000"
       <Route path='login' element={<Login/>}></Route>
     </Route>
 
+  
+
   </Routes>
+  
 
      </div>
     </body>

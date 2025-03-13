@@ -19,7 +19,6 @@ const validationSchema={
             message:'Username is required'
         }
     },
-
         passwordValidator:{
             required:{
                 value:true,
@@ -30,7 +29,6 @@ const validationSchema={
                 message:'enter full password'
             }
         },
-
         emailValidator:{
             required:{
                 value:true,
@@ -42,24 +40,8 @@ const validationSchema={
                 value:true,
                 message:"contact number is required"
             }
-        }
-    
-    
-    
+        }      
 }
-// const submitHandler = async (data) => {
-//     try {
-//         console.log("Sending login request:", data);
-//         const res = await axios.post("http://localhost:2800/user/login", data); // Ensure this URL is correct
-
-//         console.log("Login Success:", res.data);
-//         alert("Login Successful!");
-//     } catch (error) {
-//         console.error("Login Error:", error.response?.data || error.message);
-//         alert(error.response?.data?.message || "An error occurred.");
-//     }
-// };
-
 const submitHandler=async(data)=>{
 
 try{
@@ -72,7 +54,7 @@ try{
                 navigate("/user")
             }, 2000 );
             localStorage.setItem("id", res.data.data._id)
-            localStorage.setItem("name",res.data.data.roleId.name)   
+            localStorage.setItem("role",res.data.data.roleId.name)   
     }else{
         data.roleId="67c0091e46b71abdd5484571"
         const res=await axios.post("/user/signup",data)
@@ -86,9 +68,7 @@ try{
     console.log("somthing wrong here")
     loginfail()
 }
-
 }
-
   return (
     <div>
         <ToastContainer
@@ -112,9 +92,6 @@ try{
 
          </div> <br />
       <form  onSubmit={handleSubmit(submitHandler)}>
-
-
-
          {islogin?<>
          
        <div >
@@ -175,13 +152,10 @@ try{
                 {errors.password?.message}
              </span>
          </div> <br />
-
-
          <div>
             <button id='signupsuccess'>Sign Up</button>
          </div>
          </>}
-
       </form>
         </div>
     </div>
