@@ -1,0 +1,25 @@
+.contact{
+    position: relative;
+/* border: 2px solid black; */
+/* height:350px; */
+width:100vw;
+margin-top: 70px;
+top: 3rem;
+/* left:30rem; 
+*/
+text-align:center;
+
+}
+.contactUsForm{
+    background-color: rgb(34, 96, 96);
+    width: 100%;
+    height: 465px;
+    margin-top: 20px;
+}
+.detail{
+    margin-left:34vw;
+}
+/* #sbtn{
+    border: 2px solid red;
+} */
+
