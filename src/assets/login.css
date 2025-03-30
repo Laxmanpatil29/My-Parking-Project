@@ -1,3 +1,4 @@
+
 .form{
     border: 2px solid black;
     border-radius: 5px;
@@ -6,61 +7,78 @@
     padding: 10px;
     text-align: center;
     position:fixed;
-    top: 60px;
-    left: 370px;
+    top: 120px;
+    left: 500px;
+    justify-content: center;
+    text-align: center;
+    width:400px;
+    height: 55vh;
+    z-index: 1000;
 }
 .btns{
     display: flex;
-    gap: px;
-    
+    height: 40px;
+    font-size: 25px; 
+}
+
+.forgot{
+    text-align: end;
+    padding: 15px 15px 0px 0px;
+    font-size: 20px;  
 }
 .input{
-    height:25px;
-    width: 220px;
+    height:38px;
+    width:20vw;
+    border-radius: 3px;
+    padding-left: 10px; 
+}
+.ip{
+    height:38px;
+    width:20vw;
+    border-radius: 3px;
+    padding-left: 10px;
 }
 .loginbtn{
     background-color:#000957;
     color: white;
-    width:110px;
+    width: 200px;
     border-radius: 5px;
 }
 .signupbtn{
     background-color:white;
     color:black;
-    width: 110px;
+    width: 200px;
     border-radius: 5px;
 }
 #loginsuccess{
-    height: 30px;
-    width: 220px;
+    height: 50px;
+    width: 360px;
+    font-size: 25px;
     background-color: #000957;
     color: white;
-    margin-top:10px
+    margin-top:10px;
+    border-radius: 5px;
 }
 #signupsuccess{
-    height: 30px;
-    width: 220px;
+    height: 50px;
+    width: 360px;
     background-color: #000957;
     color: white;
-    margin-top:10px
+    /* margin-top:10px; */
+    font-size: 25px;
+    border-radius: 5px;
+}
+.lastpart{
+    margin-top: 15px;
+    font-size: 20px;
 }
 
-/* .userlogin{
-    color:#22a7a7;
-    position: fixed;
-    right: 30px;
-    
-  }
-  .userlogin:hover{
-    color: #369c22;
-    
-  } */
-  .userlogin{
-    text-decoration: none;
-  }
+#signup{
+    margin-left: 10px;
+}
+  
   
 
-  #signup:hover{
-    background-color: #000957;
-    color: antiquewhite;
-  }
+ 
+
+  

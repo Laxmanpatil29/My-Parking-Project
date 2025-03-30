@@ -1,281 +1,68 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-// import { Outlet } from 'react-router-dom'
-// import ''    
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import Profile from "../../assets/LOGO.png"
 
-export const UserNavbar = ({toggleSidebar}) => {
+
+
+export const UserNavbar = () => {
+
+  const [token, settoken] = useState(true)
+  const navigate=useNavigate()
+
+
   return (
-    <nav className="app-header navbar navbar-expand bg-body">
-
-      <div className="container-fluid">
-
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a
-              className="nav-link btn btn-dark"
-              href="#"
-              role="button"
-              style={{
-                color:"black",
-                padding:"5px 10px",
-                border:"1px solid #ccc",
-                borderRadius:"5px"
-              }}
-
-              onClick={toggleSidebar}
-            >
-              <i className="bi bi-list" />
-            </a>
-          </li>
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              Contact
-            </a>
-          </li>
-
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              About Us
-            </a>
-          </li>
-
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              Services
-            </a>
-          </li>
-
-          <li>
-            <Link to="book">Book your spot</Link>
-          </li>
-          {/* <li>
-          <Link id="login" class="usersignup" to="signup"><i class="fa-solid fa-user"></i> Sign up </Link>
-          </li> */}
-
-{/* 
-        <li >
-          
-          <Link className="nav-link" to="login"><i class="fa-solid fa-user"></i> log in </Link>
-
-          </li> */}
-
-         
-          
-        </ul>
-
-
-        {/* <ul className="navbar-nav ms-auto">
-
-          <li className="nav-item">
-            <a
-              className="nav-link"
-              data-widget="navbar-search"
-              href="#"
-              role="button"
-            >
-              <i className="bi bi-search" />
-            </a>
-          </li>
-
-          <li className="nav-item dropdown">
-            <a className="nav-link" data-bs-toggle="dropdown" href="#">
-              <i className="bi bi-chat-text" />
-              <span className="navbar-badge badge text-bg-danger">3</span>
-            </a>
-            <div className="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <a href="#" className="dropdown-item">
-
-                <div className="d-flex">
-                  <div className="flex-shrink-0">
-                    <img
-                      src="../../dist/assets/img/user1-128x128.jpg"
-                      alt="User Avatar"
-                      className="img-size-50 rounded-circle me-3"
-                    />
-                  </div>
-                  <div className="flex-grow-1">
-                    <h3 className="dropdown-item-title">
-                      Brad Diesel
-                      <span className="float-end fs-7 text-danger">
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </h3>
-                    <p className="fs-7">Call me whenever you can...</p>
-                    <p className="fs-7 text-secondary">
-                      <i className="bi bi-clock-fill me-1" /> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item">
-
-                <div className="d-flex">
-                  <div className="flex-shrink-0">
-                    <img
-                      src="../../dist/assets/img/user8-128x128.jpg"
-                      alt="User Avatar"
-                      className="img-size-50 rounded-circle me-3"
-                    />
-                  </div>
-                  <div className="flex-grow-1">
-                    <h3 className="dropdown-item-title">
-                      John Pierce
-                      <span className="float-end fs-7 text-secondary">
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </h3>
-                    <p className="fs-7">I got your message bro</p>
-                    <p className="fs-7 text-secondary">
-                      <i className="bi bi-clock-fill me-1" /> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item">
-
-                <div className="d-flex">
-                  <div className="flex-shrink-0">
-                    <img
-                      src="../../dist/assets/img/user3-128x128.jpg"
-                      alt="User Avatar"
-                      className="img-size-50 rounded-circle me-3"
-                    />
-                  </div>
-                  <div className="flex-grow-1">
-                    <h3 className="dropdown-item-title">
-                      Nora Silvester
-                      <span className="float-end fs-7 text-warning">
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </h3>
-                    <p className="fs-7">The subject goes here</p>
-                    <p className="fs-7 text-secondary">
-                      <i className="bi bi-clock-fill me-1" /> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item dropdown-footer">
-                See All Messages
-              </a>
-            </div>
-          </li>
-
-          <li className="nav-item dropdown">
-            <a className="nav-link" data-bs-toggle="dropdown" href="#">
-              <i className="bi bi-bell-fill" />
-              <span className="navbar-badge badge text-bg-warning">15</span>
-            </a>
-            <div className="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-              <span className="dropdown-item dropdown-header">
-                15 Notifications
-              </span>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item">
-                <i className="bi bi-envelope me-2" /> 4 new messages
-                <span className="float-end text-secondary fs-7">3 mins</span>
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item">
-                <i className="bi bi-people-fill me-2" /> 8 friend requests
-                <span className="float-end text-secondary fs-7">12 hours</span>
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item">
-                <i className="bi bi-file-earmark-fill me-2" /> 3 new reports
-                <span className="float-end text-secondary fs-7">2 days</span>
-              </a>
-              <div className="dropdown-divider" />
-              <a href="#" className="dropdown-item dropdown-footer">
-                {" "}
-                See All Notifications{" "}
-              </a>
-            </div>
-          </li>
-
-          <li className="nav-item">
-            <a className="nav-link" href="#" data-lte-toggle="fullscreen">
-              <i data-lte-icon="maximize" className="bi bi-arrows-fullscreen" />
-              <i
-                data-lte-icon="minimize"
-                className="bi bi-fullscreen-exit"
-                style={{ display: "none" }}
-              />
-            </a>
-          </li>
-
-          <li className="nav-item dropdown user-menu">
-            <a
-              href="#"
-              className="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              <img
-                src="../../dist/assets/img/user2-160x160.jpg"
-                className="user-image rounded-circle shadow"
-                alt="User Image"
-              />
-              <span className="d-none d-md-inline">Alexander Pierce</span>
-            </a>
-            <ul className="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-
-              <li className="user-header text-bg-primary">
-                <img
-                  src="../../dist/assets/img/user2-160x160.jpg"
-                  className="rounded-circle shadow"
-                  alt="User Image"
-                />
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2023</small>
-                </p>
-              </li>
-
-              <li className="user-body">
-
-                <div className="row">
-                  <div className="col-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div className="col-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div className="col-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-
-              </li>
-
-              <li className="user-footer">
-                <a href="#" className="btn btn-default btn-flat">
-                  Profile
-                </a>
-                <a href="#" className="btn btn-default btn-flat float-end">
-                  Sign out
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-        </ul> */}
-
+  <>
+  <nav className="relative bg-[#0E2D33] text-white h-16 p-4 flex items-center justify-between" >
+      <div className="flex items-center ml-8">
+        <Link to=''> <img className='w-16' src={Profile} alt="" /></Link> 
       </div>
-     
-    </nav>
-    
 
+
+      <div className="absolute ml-[10%] text-xl  flex gap-6 ">
+          <Link className=" text-center no-underline text-white "  to="" >Home </Link>
+          <Link className=" text-center no-underline text-white hover:text-red-600 "  to="about" >About</Link>
+          <Link className=" text-center no-underline text-white hover:text-red-600 " to="services" >Services</Link>
+          <Link className=" text-center no-underline text-white hover:text-red-600 " to="contact" >Contact</Link>
+      </div>
+
+      <div className='flex ml-[60%] gap-2' >
+      <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black  '  type="text" placeholder='Search' />
+      <button className='border-1 border-gray-300 px-1 h-10 w-10 rounded'><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div className=' absolute ml-[55%] border-3 border-white px-2 py-2 rounded-xl bg-[#23adc0]'>
+        <Link to='parkinglots'><button className=' text-black font-bold'>Book Your parking lots</button>  </Link>
+      </div>
+
+      
+
+      <div className='flex items-center gap-4'>
+                  { 
+                  token 
+                ? <div className='flex items-center gap-2 cursor-pointer group relative'>
+                      {/* <img className='w-8 rounded-full' src={Profile} alt="profile" /> */}
+                     <p className=' border-1 rounded-full w-7 text-center mt-3'><i class="fa-solid fa-user" ></i></p> 
+                      {/* <i className='w-2.5' class="fa-solid fa-caret-down"></i> */}
+                      
+                      <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
+                        <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
+                          <p onClick={()=>navigate('profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
+                          <p onClick={()=>navigate('mybooking')} className=' hover:text-black cursor-pointer'>My Booking</p>
+                          <p onClick={()=>navigate('/')} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
+                        </div>
+                      </div>
+                    </div>
+                    :
+                    <button onClick={()=>navigate('/login')} className='bg-[black] border-2 border-white text-white px-6 py-2 rounded-full font-light hidden md:block'>Create Account</button>
+                              }
+
+                            
+                              
+      </div>
+    
+  </nav>
+  
+  </>
+  
   )
 }

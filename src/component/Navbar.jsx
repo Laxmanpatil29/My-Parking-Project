@@ -5,21 +5,22 @@ import "../assets/Navbar.css"
 export const Navbar = () => {
   return (
    <nav class='nav1' >
-       <img id="logo" src="src/assets/images.jpeg" alt="" />
+
+     <Link to='/'> <img id="logo" src="src/assets/LOGO.png" alt="" /></Link> 
             <div className="item">
 
-          <Link  class="component" to="/home">Home</Link>
+          <Link  class="component" to="/">Home</Link>
           <Link class="component"  to="/about">About</Link>
           <Link class="component" to="/services">Services</Link>
           <Link class="component" to="/contact">Contact</Link>
 
 
           <form class="search">
-            <input  id="s-text" type="text" placeholder='Search' />
+            <input  id="s-text" class='input' type="text" placeholder='Search' />
             <button id="s-btn">search</button>
           </form>
 
-          <Link id="login" class="link" to="/login"><i class="fa-solid fa-user"></i> Log in/Sign in </Link>
+          <Link id="login" class="link" to="/login"><i style={{marginRight:'5px'}} class="fa-solid fa-user"></i>Login </Link>
 
           {/* {ispageloading===true&& <WheelLoader/>} */}
             </div>

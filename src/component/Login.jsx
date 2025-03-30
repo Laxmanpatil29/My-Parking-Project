@@ -1,17 +1,19 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import '../assets/login.css'
-import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
 const [islogin, setislogin] = useState(true)
 const {register,handleSubmit,formState:{errors},reset}=useForm()
 const navigate=useNavigate();
 const loginsuccess=()=>toast("login successfull 👍");
 const loginfail=()=>toast("invalid details 👎");
-const signup=()=>toast("signup successfully" )
+const signup=()=>toast("signup successfully 👍" )
+
 const validationSchema={
     nameValidator:{
         required:{
@@ -42,38 +44,40 @@ const validationSchema={
             }
         }      
 }
+
 const submitHandler=async(data)=>{
 
 try{
     if(islogin===true){
+            
             const res = await axios.post("/user/login",data);
-              
             console.log(res.data)
             loginsuccess();
             setTimeout(() => {
                 navigate("/user")
             }, 2000 );
-            localStorage.setItem("id", res.data.data._id)
-            localStorage.setItem("role",res.data.data.roleId.name)   
+            localStorage.setItem("id", res.data.data._id)   
+            localStorage.setItem("role",res.data.data.roleId.name)
     }else{
         data.roleId="67c0091e46b71abdd5484571"
         const res=await axios.post("/user/signup",data)
         console.log(res.data)
         signup()
-       
         reset();
     }
+
 }catch(err){
     console.log(err)
     console.log("somthing wrong here")
     loginfail()
 }
 }
+
   return (
-    <div>
+    <div> 
         <ToastContainer
             position="top-center"
-            autoClose={1500}
+            autoClose={800}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick={false}
@@ -84,33 +88,27 @@ try{
             theme="dark"
             transition={Bounce}
             />
-        <div class="form">
-        
+        <div class="form ">
          <div class="btns">
             <button class={islogin?"loginbtn":"signupbtn"}  onClick={()=>setislogin(true)}>Log in</button>
             <button class={!islogin?"loginbtn":"signupbtn"}  onClick={()=>setislogin(false)}>Sign up</button>
-
          </div> <br />
       <form  onSubmit={handleSubmit(submitHandler)}>
          {islogin?<>
-         
        <div >
-            {/* <label>UserName/Email Id</label> <br /> */}
-            <input  class="input" type="text" placeholder='enter username' {...register("email",validationSchema.nameValidator)}/> <br />
+            <input   class="ip" type="text" placeholder='enter username' {...register("email",validationSchema.nameValidator)}/> <br />
          <span  style={{color:'red'}}>
             {errors.email?.message}
          </span>
         </div>  <br />
-
         <div >
-            {/* <label>Password</label> <br /> */}
             <input  class="input" type="password" placeholder='enter password' {...register("password",validationSchema.passwordValidator)}/> <br />
             <span style={{color:'red'}}>
                 {errors.password?.message}
             </span>
         </div>
 
-        <div className="forgot" style={{textAlign:"end"}}>
+        <div class="forgot">
             <a href="#">Forgot Password ?</a>
         </div>
 
@@ -118,15 +116,13 @@ try{
             <button id="loginsuccess">Login</button>
         </div> 
 
-        <div style={{marginTop:'5px'}}>
-            <p>Don't have an Account? <br />
-
-                 <button href="#" id="signup" onClick={()=>setislogin(false)}>Sign Up</button></p>
+        <div class="lastpart">
+            <p className="font-bold underline" >Don't have an Account? 
+            <a href="#" id="signup" onClick={()=>setislogin(false)}>Sign Up</a></p>
         </div>
          </>:<>
-
          <div>
-            <input class='input' type="text" placeholder='Enter your username' {...register("userName",validationSchema.emailValidator)}/> <br />
+            <input class='ip' type="text" placeholder='Enter your username' {...register("userName",validationSchema.emailValidator)}/> <br />
             <span style={{color:'red'}}>
                 {errors.userName?.message}
             </span>
@@ -147,13 +143,13 @@ try{
          </div> <br />
 
          <div>
-            <input  class='input' type="text" placeholder='Enter a password' {...register("password",validationSchema.passwordValidator)} /> <br />
+            <input  class='input' type="password" placeholder='Enter a password'  {...register("password",validationSchema.passwordValidator)} /> <br />
              <span style={{color:'red'}}>
                 {errors.password?.message}
              </span>
          </div> <br />
          <div>
-            <button id='signupsuccess'>Sign Up</button>
+            <button  id='signupsuccess'>Sign Up</button>
          </div>
          </>}
       </form>

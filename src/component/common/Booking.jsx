@@ -38,7 +38,7 @@ const  getAreaByCityId=async(id)=>{
 
   return (
     <>
-    <div>
+    <div style={{marginTop:'60px'}}>
       <form onSubmit={handleSubmit(submitHandler)}>
 
         <div>

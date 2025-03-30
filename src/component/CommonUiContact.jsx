@@ -64,6 +64,49 @@ const submitHandler=async(data)=>{
         <p>We’d love to hear from you. Take five minutes to fill out our form so that we can get to know you.</p>
       </div>
 
+
+      <div class="flex flex-wrap justify-center ml-60 gap-10 w-full max-w-5xl">
+        
+        {/* <!-- India Office -->\ */}
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-80">
+            {/* <img src="india-flag.png" alt="India Flag" class="w-12 mx-auto mb-4"/> */}
+            <h2 class="text-xl font-semibold">Registered Office</h2>
+            <p class="text-gray-600 mt-2 hover:text-red-500">
+                <i class="fas fa-map-marker-alt text-blue-500"></i> A-502, Tilak Nagar, Opposite VS Hospital, <br />
+                Vastral, Ahmedabad - 380026, Gujarat, India.
+            </p>
+            <p class="text-gray-700 mt-2  hover:text-red-500"><i class="fas fa-phone text-blue-500"></i> +91 4512789685</p>
+            <p class="text-gray-700 mt-2  hover:text-red-500"><i class="fas fa-envelope text-blue-500"></i> myparking@gmail.com</p>
+            <div class="mt-4 flex justify-center gap-4 text-gray-600">
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        {/* <!-- UK Office --> */}
+        <div class="bg-white p-6 rounded-2xl shadow-lg text-center w-80">
+            {/* <img src="uk-flag.png" alt="UK Flag" class="w-12 mx-auto mb-4"/> */}
+            <h2 class="text-xl font-semibold">Registered Office</h2>
+            <p class="text-gray-600 mt-2  hover:text-red-500">
+                <i class="fas fa-map-marker-alt text-blue-500"></i> B-702,Bhakti Nagar, <br />
+                Nikol, Ahmedabad - 382430, Gujarat, India.
+            </p>
+            <p class="text-gray-700 mt-2  hover:text-red-500"><i class="fas fa-phone text-blue-500"></i> +91 7525714555</p>
+            <p class="text-gray-700 mt-2  hover:text-red-500"><i class="fas fa-envelope text-blue-500"></i> myparking@gmail.com</p>
+            <div class="mt-4 flex justify-center gap-4 text-gray-600">
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-blue-500"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+      </div>
+
       <div class='contactUsForm'>
         <h1 className='pt-2 text-white'>Get In Touch</h1>
           <form onSubmit={handleSubmit(submitHandler)}>
@@ -115,5 +158,6 @@ const submitHandler=async(data)=>{
       </div>
     
     </div>
-  )  
+  
+)
 }
