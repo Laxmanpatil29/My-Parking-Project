@@ -12,8 +12,10 @@ export const MyBooking = () => {
 
   
       const bookedParkings=async()=>{
+
+        const userId=localStorage.getItem("id")
   
-        const res=await axios.get("/book/getallbook")
+        const res=await axios.get(`/book/getallbook?userId=${userId}`)
         console.log(res)
         setbookings(res.data.data)
         console.log(bookedParking)
@@ -60,11 +62,11 @@ export const MyBooking = () => {
 
     <div className='flex gap-4 my-4 border-2 rounded-lg w-[60%] ml-[5%] py-[1%] bg-slate-300'>
       
-       <img className='w-[360px] ml-12 mb-2 rounded-md' src={bookings.image_url} alt="" />
-       <div>
+       <img className='w-[360px] ml-12  rounded-md' src={bookings.image_url} alt="" />
+       <div className='mr-0 w-[50%]'>
              <p className='font-bold'>Name:- {bookings.name}</p>
              <p><span className='font-bold'>Location:-</span> {bookings.location}</p>
-             <p><span className='font-bold'>Price Per Hour:-</span> {bookings.pricePerHour}</p>
+             <p><span className='font-bold'>Price Per Hour:-</span> {bookings.price_per_hour}</p>
              <p><span className='font-bold'>Features:-</span> {bookings.features}</p>
 
              <div className='flex gap-3 ml-[47%] mt-[5%]'>

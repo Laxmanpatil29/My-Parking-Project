@@ -14,7 +14,7 @@ export const Footer = () => {
       
       <div class="col-md-6 col-lg-3">
         <div class="widget">
-          <div class="footer-quick-link" className='mb-16' >
+          <div class="footer-quick-link"  >
             <div class="footer-widget-title">
               <h5>Quick Links</h5>
             </div>
@@ -31,7 +31,7 @@ export const Footer = () => {
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="widget">
-          <div class="footer-quick-link" className='mb-10'>
+          <div class="footer-quick-link" >
             <div class="footer-widget-title" >
               <h5>Resources</h5>
             </div>

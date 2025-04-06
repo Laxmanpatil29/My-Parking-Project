@@ -4,10 +4,21 @@ import Profile from "../../assets/LOGO.png"
 
 
 
-export const UserNavbar = () => {
+export const UserNavbar = ({setSearchQuery}) => {
 
-  const [token, settoken] = useState(true)
+
+  
   const navigate=useNavigate()
+
+
+  const logoutUser=()=>{
+    localStorage.removeItem("id");
+    localStorage.removeItem("role");
+    localStorage.removeItem("name");
+    sessionStorage.clear();
+    navigate('/')
+
+  }
 
 
   return (
@@ -26,7 +37,7 @@ export const UserNavbar = () => {
       </div>
 
       <div className='flex ml-[60%] gap-2' >
-      <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black  '  type="text" placeholder='Search' />
+      <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black  '  type="text" placeholder='Search'  onChange={(e) => setSearchQuery(e.target.value)} />
       <button className='border-1 border-gray-300 px-1 h-10 w-10 rounded'><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
 
@@ -37,9 +48,9 @@ export const UserNavbar = () => {
       
 
       <div className='flex items-center gap-4'>
-                  { 
-                  token 
-                ? <div className='flex items-center gap-2 cursor-pointer group relative'>
+                  
+                
+                 <div className='flex items-center gap-2 cursor-pointer group relative'>
                       {/* <img className='w-8 rounded-full' src={Profile} alt="profile" /> */}
                      <p className=' border-1 rounded-full w-7 text-center mt-3'><i class="fa-solid fa-user" ></i></p> 
                       {/* <i className='w-2.5' class="fa-solid fa-caret-down"></i> */}
@@ -48,16 +59,14 @@ export const UserNavbar = () => {
                         <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
                           <p onClick={()=>navigate('profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
                           <p onClick={()=>navigate('mybooking')} className=' hover:text-black cursor-pointer'>My Booking</p>
-                          <p onClick={()=>navigate('/')} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
+                          <p onClick={logoutUser} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
                         </div>
                       </div>
                     </div>
-                    :
-                    <button onClick={()=>navigate('/login')} className='bg-[black] border-2 border-white text-white px-6 py-2 rounded-full font-light hidden md:block'>Create Account</button>
-                              }
+                    
 
                             
-                              
+              
       </div>
     
   </nav>

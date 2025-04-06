@@ -12,7 +12,7 @@ import Login from './component/Login'
 import { ProviderProfile } from './component/provider/ProviderProfile'
 
 import { CommonUi } from './component/common/CommonUi'
-
+   
 import PrivateRoutes from './component/hooks/PrivateRoutes'
 import { CommonUiHome } from './component/CommonUiHome'
 import { CommonUiContact } from './component/CommonUiContact'
@@ -22,11 +22,20 @@ import { Navbar } from './component/Navbar'
 import { MyBooking } from './component/user/MyBooking'
 import { ParkingLots } from './component/user/ParkingLots'
 import { ParkingDetails } from './component/user/ParkingDetails'
-import {ParkingObject} from './component/provider/ParkingObject'
+// import {ParkingObject} from './component/provider/ParkingObject'
+import { ListParkingArea } from './component/provider/ListParkingArea'
+import { ResetPassword } from './component/common/ResetPassword'
+import { useState } from 'react'
+import { ForgotPassword } from './component/common/ForgotPassword'
+import { Booking } from './component/common/Booking'
+import { ActiveBooking } from './component/provider/ActiveBooking'
+
 
 
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [SearchActiveBooking, setSearchActiveBooking] = useState("");
 
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
       <div className='app-wrapper'></div>
@@ -35,23 +44,26 @@ axios.defaults.baseURL="http://localhost:3000"
 
 const location = useLocation(); // Get current location
 
-const showNavbar = ['/', '/about', '/contact', '/services', '/login',].includes(location.pathname); // Check if Navbar should be shown
+const showNavbar = ['/', '/about', '/contact', '/services', '/login','/listparkingarea',].includes(location.pathname); // Check if Navbar should be shown
 
   return (
     <div>
 
 {showNavbar && <Navbar />} {/* Conditionally render Navbar */}
   <Routes>
+       
         <Route path="/" element={<CommonUi/>} />
         <Route path='/login' element={<Login/>}></Route> 
         <Route path='/' element={<CommonUiHome/>}></Route> 
         <Route path='/about' element={<CommonUiAbout/>}></Route> 
         <Route path='/services' element={<CommonUiServices/>}></Route> 
         <Route path='/contact' element={<CommonUiContact/>}></Route> 
+        <Route path='/listparkingarea' element={<ListParkingArea/>}></Route> 
+
         
 
     <Route element={<PrivateRoutes />}>
-        <Route path="/user" element={<UserSidebar />}>
+        <Route path="/user" element={<UserSidebar  setSearchQuery={setSearchQuery}  />}>
           <Route path="profile" element={<UserProfile />} />
           {/* <Route path="" element={<Ui />} /> */}
           <Route path="mybooking" element={<MyBooking/>}/>
@@ -59,11 +71,9 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login',].includes(
           <Route path='about' element={<CommonUiAbout/>}/>
           <Route path='services' element={<CommonUiServices/>}/>
           <Route path='contact' element={<CommonUiContact/>}/>
-          <Route path='parkinglots' element={<ParkingLots/>}/>
+          <Route path='parkinglots' element={<ParkingLots searchQuery={searchQuery}/>}/>
           <Route path='parkinglots/parkingdetails/:id' element={<ParkingDetails/>}/>
-          
-       
-          {/* <Route path="book" element={<Booking />} /> */}
+          <Route path='parkinglots/parkingdetails/:id/book' element={<Booking/>}/>
         </Route>
       </Route>
 
@@ -71,13 +81,19 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login',].includes(
       <Route path='profile' element={<AdminProfile/>}></Route>
       <Route path='login' element={<Login/>}></Route>
     </Route>
-
-    <Route path='/provider' element={<ProviderSidebar/>}>
+    
+    <Route path='/provider' element={<ProviderSidebar setSearchActiveBooking={setSearchActiveBooking}/>}>
+    <Route path="" element={<CommonUiHome/>}/>
+    <Route path='contact' element={<CommonUiContact/>}/>
       <Route path='profile' element={<ProviderProfile/>}></Route>
       <Route path='login' element={<Login/>}></Route>
-      <Route path='addparkingdetails' element={<ParkingObject/>}/>
+      <Route path='listparkingdetails' element={<ListParkingArea/>}/>
+      <Route path='activebooking' element={<ActiveBooking SearchActiveBooking={SearchActiveBooking}/>}/>
     </Route>
+    
 
+    <Route path='/resetpassword/:token' element={<ResetPassword/>}/>
+    <Route path='/forgetpassword' element={<ForgotPassword/>}/>
   
 
   </Routes>

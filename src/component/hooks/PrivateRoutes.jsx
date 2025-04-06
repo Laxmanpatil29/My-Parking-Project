@@ -10,7 +10,7 @@ const useAuth = () => {
       const role = localStorage.getItem("role");
   
       if (id) {
-        setAuthState({ isLoggedin: true, role });
+        setAuthState({ isLoggedin: true, role});
       }
       setLoading(false);
     }, []);

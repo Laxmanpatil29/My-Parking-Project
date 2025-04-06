@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import '../assets/login.css'
 
@@ -51,15 +51,26 @@ try{
     if(islogin===true){
             
             const res = await axios.post("/user/login",data);
-            console.log(res.data)
+            console.log(res.data.data)
             loginsuccess();
             setTimeout(() => {
-                navigate("/user")
+    
             }, 2000 );
             localStorage.setItem("id", res.data.data._id)   
-            localStorage.setItem("role",res.data.data.roleId.name)
+            localStorage.setItem("role",res.data.data.roleId.name)  
+            localStorage.setItem("name",res.data.data.userName)
+            console.log(res.data.data.roleId.name)
+
+            if(res.data.data.roleId.name==="user"){
+                navigate("/user ")
+            }else if(res.data.data.roleId.name==="provider"){
+                    navigate("/provider")
+            }else{
+                navigate("/admin")
+            }
+
+            
     }else{
-        data.roleId="67c0091e46b71abdd5484571"
         const res=await axios.post("/user/signup",data)
         console.log(res.data)
         signup()
@@ -74,6 +85,7 @@ try{
 }
 
   return (
+    <>
     <div> 
         <ToastContainer
             position="top-center"
@@ -109,7 +121,7 @@ try{
         </div>
 
         <div class="forgot">
-            <a href="#">Forgot Password ?</a>
+            <Link to="/forgetpassword">Forgot Password ?</Link>
         </div>
 
         <div>
@@ -148,6 +160,15 @@ try{
                 {errors.password?.message}
              </span>
          </div> <br />
+
+         <div>
+            <label className='font-bold'>Roles:-</label>
+            <select className='mb-2 w-20' {...register("roleId")}>
+                <option value="67ea169d0b27d76db25ade9e">User</option>
+                <option value="67ea16c20b27d76db25adea0">Provider</option>
+                <option value="67ea16e70b27d76db25adea2">Admin</option>
+            </select>
+         </div>
          <div>
             <button  id='signupsuccess'>Sign Up</button>
          </div>
@@ -155,6 +176,7 @@ try{
       </form>
         </div>
     </div>
+    </>
   )
 }
 export default Login

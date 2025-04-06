@@ -12,13 +12,13 @@ export const Navbar = () => {
           <Link  class="component" to="/">Home</Link>
           <Link class="component"  to="/about">About</Link>
           <Link class="component" to="/services">Services</Link>
-          <Link class="component" to="/contact">Contact</Link>
+          <Link class="component" to="/contact">Contact Us</Link>
 
 
-          <form class="search">
+          {/* <form class="search">
             <input  id="s-text" class='input' type="text" placeholder='Search' />
             <button id="s-btn">search</button>
-          </form>
+          </form> */}
 
           <Link id="login" class="link" to="/login"><i style={{marginRight:'5px'}} class="fa-solid fa-user"></i>Login </Link>
 

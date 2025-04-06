@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 
 export const ParkingDetails = () => {
-  const parkingSuccess=()=>toast("Your Parking Slot Booked Successfully 🎉")
+  const navigate=useNavigate()
  const {id}= useParams()
 
   const [parkingdetails, setparkingdetails] = useState(null)
@@ -17,7 +17,7 @@ export const ParkingDetails = () => {
       console.log(res)
       console.log(res.data)
       setparkingdetails(res.data.data)
-      // console.log(parkingdetails)
+     
       
     } catch(err){
       console.error("the error is:- ",err)
@@ -34,8 +34,8 @@ export const ParkingDetails = () => {
   if (!parkingdetails) return <h2 className="text-center text-red-500">Parking not found</h2>;
 
   const bookParking=async ()=>{
-      
-    const res =await axios.post("/book/addbook",{
+
+    const areaDetails={
       parking_id:parkingdetails._id,
       name:parkingdetails.name,
       image_url:parkingdetails.image_url,
@@ -45,21 +45,9 @@ export const ParkingDetails = () => {
       price_per_hour:parkingdetails.price_per_hour,
       type:parkingdetails.type,
       features:parkingdetails.features
-    })
-    parkingSuccess()
-
-    console.log("your booking",res)
-    console.log(res.data)
+    }
+    navigate('book', { state: {parkingData:areaDetails } });
   }
-  
-  // const {id} = useParams();
-  // useEffect(() => {
-  //   const parking = parkingAreas.find((p) => String(p._id) === String(id));
-  //   setparkingdetails(parking);
-  //   console.log(parkingdetails);
-  // }, [id]); // Only runs when id changes
-  // if (!parkingdetails) return <h2>Parking not found</h2>;
-
   return (
   <div className='text-center'>
     <ToastContainer
@@ -92,7 +80,9 @@ export const ParkingDetails = () => {
             <p>Type: {parkingdetails.type}</p>
             <p>Features: {parkingdetails.features}</p>
             
-             <button onClick={bookParking} className='border-1 rounded-lg px-2 text-lg font-bold bg-[#96b4b2] text-black'>Book slot</button>
+          
+              <button onClick={bookParking} className='border-1 rounded-lg px-2 text-lg font-bold bg-[#96b4b2] text-black'>Book slot</button>
+            
 
             
         </div>

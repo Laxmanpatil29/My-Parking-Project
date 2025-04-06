@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 import { UserNavbar } from './UserNavbar'
 
 
-export const UserSidebar = () => {
+export const UserSidebar = ({setSearchQuery}) => {
 
   
   
@@ -16,7 +16,7 @@ export const UserSidebar = () => {
     <>
 
     
-    <UserNavbar ></UserNavbar>
+    <UserNavbar  setSearchQuery={setSearchQuery} ></UserNavbar>
       {/* <aside 
           className='bg-[#2c4e64] w-52 flex flex-1'>
           <div

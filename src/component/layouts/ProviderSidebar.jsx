@@ -2,10 +2,10 @@ import React from 'react'
 import { ProviderNavbar } from './ProviderNavbar'
 import { Outlet } from 'react-router-dom'
 
-export const ProviderSidebar = () => {
+export const ProviderSidebar = ({setSearchActiveBooking}) => {
   return (
    <>
-   <ProviderNavbar/>
+   <ProviderNavbar setSearchActiveBooking={setSearchActiveBooking}/>
    
   <main class='app-main'>
     <Outlet></Outlet>
