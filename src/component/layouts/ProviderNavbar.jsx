@@ -57,6 +57,7 @@ export const ProviderNavbar = ({setSearchActiveBooking}) => {
                         <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
                           <p onClick={()=>navigate('profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
                           <p onClick={()=>navigate('activebooking')} className=' hover:text-black cursor-pointer'>Active Booking</p>
+                          <p onClick={()=>navigate('incominginquiry')} className=' hover:text-black cursor-pointer'>All Inquiry</p>
                           <p onClick={logoutUser} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
                         </div>
                       </div>

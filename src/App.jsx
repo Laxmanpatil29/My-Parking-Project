@@ -29,6 +29,7 @@ import { ResetPassword } from './component/common/ResetPassword'
 import { ActiveBooking } from './component/provider/ActiveBooking'
 import { ListParkingArea } from './component/provider/ListParkingArea' 
 import { AddYourArea } from './component/user/AddYourArea'
+import { IncomingInquiry } from './component/provider/IncomingInquiry'
 
 
 
@@ -93,6 +94,7 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
       <Route path='login' element={<Login/>}></Route>
       <Route path='listparkingdetails' element={<ListParkingArea/>}/>
       <Route path='activebooking' element={<ActiveBooking SearchActiveBooking={SearchActiveBooking}/>}/>
+      <Route path='incominginquiry' element={<IncomingInquiry/>}/>
     </Route>
     </Route>
     

@@ -3,6 +3,7 @@ import "../assets/uicontact.css"
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { Footer } from './Footer'
 
 export const CommonUiContact = () => {
 
@@ -34,9 +35,14 @@ export const CommonUiContact = () => {
 
 const submitHandler=async(data)=>{
   console.log(data)
-  const res=await axios.post("/contactus/addcontactus",data)
+  const userId=localStorage.getItem("id")
+  const fullData={
+    ...data,
+    userId:userId
+  }
+  const res=await axios.post("/contactus/addcontactus",fullData)
   sendSuccess()
-  console.log(res.data)
+  console.log(res.fullData)
   reset()
 
 }
@@ -156,7 +162,7 @@ const submitHandler=async(data)=>{
           
           </form>
       </div>
-    
+    <Footer/>
     </div>
   
 )

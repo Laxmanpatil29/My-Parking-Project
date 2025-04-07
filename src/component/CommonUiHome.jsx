@@ -102,7 +102,7 @@ export const CommonUiHome = () => {
              <div>
               <p className='text-6xl text-red-600'>🌐</p>
              <h2>Our Vision</h2>
-             <p className='font-serif 9ACBD0xt-xl'>"To be the most trusted platform for modern parking <br />solutions — empowering people with seamless access to <br /> space, time, and movement."</p>
+             <p className='font-serif text-xl'>"To be the most trusted platform for modern parking <br />solutions — empowering people with seamless access to <br /> space, time, and movement."</p>
              </div>
         </div>
 
@@ -113,7 +113,7 @@ export const CommonUiHome = () => {
           </div>
           <div>
             <Link to='/addparking'>
-            <button className='font-serif border-2 border-black px-2 py-2 mt-6 font-bold bg-[#1B56FD] text-white'>LET'S START</button>
+            <button className='font-serif justify-center rounded-lg shadow-2xl px-2 py-2 mt-6 font-bold bg-[#1B56FD] text-white'>LET'S START</button>
             </Link>
           </div>
 
