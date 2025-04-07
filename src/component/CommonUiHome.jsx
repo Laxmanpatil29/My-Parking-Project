@@ -112,7 +112,7 @@ export const CommonUiHome = () => {
           <p className='font-medium'>“Turn your unused parking spot into steady income. List with us today.”</p>
           </div>
           <div>
-            <Link to='/listparkingarea'>
+            <Link to='/addparking'>
             <button className='font-serif border-2 border-black px-2 py-2 mt-6 font-bold bg-[#1B56FD] text-white'>LET'S START</button>
             </Link>
           </div>

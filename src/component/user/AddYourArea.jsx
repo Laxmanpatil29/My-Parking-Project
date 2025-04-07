@@ -3,7 +3,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 
-export const ListParkingArea = () => {
+export const AddYourArea = () => {
     const areasuccess=()=>toast("Your area Details added successfully")
 
     const {register,handleSubmit,formState:{errors}}=useForm()
@@ -72,7 +72,7 @@ export const ListParkingArea = () => {
         }
     }
   return (
-    <div className='text-center bg-[#F1EFEC]  py-6'>
+    <div className='text-center bg-[#F1EFEC]  py-6  mt-[70px] '>
         <ToastContainer
             position="top-center"
             autoClose={1500}

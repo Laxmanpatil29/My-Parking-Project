@@ -13,22 +13,22 @@ import { ProviderProfile } from './component/provider/ProviderProfile'
 
 import { CommonUi } from './component/common/CommonUi'
    
-import PrivateRoutes from './component/hooks/PrivateRoutes'
-import { CommonUiHome } from './component/CommonUiHome'
-import { CommonUiContact } from './component/CommonUiContact'
 import { CommonUiAbout } from './component/CommonUiAbout'
+import { CommonUiContact } from './component/CommonUiContact'
+import { CommonUiHome } from './component/CommonUiHome'
 import { CommonUiServices } from './component/CommonUiServices'
+import PrivateRoutes from './component/hooks/PrivateRoutes'
 import { Navbar } from './component/Navbar'
 import { MyBooking } from './component/user/MyBooking'
-import { ParkingLots } from './component/user/ParkingLots'
 import { ParkingDetails } from './component/user/ParkingDetails'
-// import {ParkingObject} from './component/provider/ParkingObject'
-import { ListParkingArea } from './component/provider/ListParkingArea'
-import { ResetPassword } from './component/common/ResetPassword'
+import { ParkingLots } from './component/user/ParkingLots'
 import { useState } from 'react'
-import { ForgotPassword } from './component/common/ForgotPassword'
 import { Booking } from './component/common/Booking'
+import { ForgotPassword } from './component/common/ForgotPassword'
+import { ResetPassword } from './component/common/ResetPassword'
 import { ActiveBooking } from './component/provider/ActiveBooking'
+import { ListParkingArea } from './component/provider/ListParkingArea' 
+import { AddYourArea } from './component/user/AddYourArea'
 
 
 
@@ -44,7 +44,7 @@ axios.defaults.baseURL="http://localhost:3000"
 
 const location = useLocation(); // Get current location
 
-const showNavbar = ['/', '/about', '/contact', '/services', '/login','/listparkingarea',].includes(location.pathname); // Check if Navbar should be shown
+const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparking',].includes(location.pathname); // Check if Navbar should be shown
 
   return (
     <div>
@@ -58,11 +58,11 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/listparki
         <Route path='/about' element={<CommonUiAbout/>}></Route> 
         <Route path='/services' element={<CommonUiServices/>}></Route> 
         <Route path='/contact' element={<CommonUiContact/>}></Route> 
-        <Route path='/listparkingarea' element={<ListParkingArea/>}></Route> 
+        <Route path='/addparking' element={<AddYourArea/>}></Route> 
 
         
 
-    <Route element={<PrivateRoutes />}>
+    <Route element={<PrivateRoutes  availableroles={["user"]}/>}>
         <Route path="/user" element={<UserSidebar  setSearchQuery={setSearchQuery}  />}>
           <Route path="profile" element={<UserProfile />} />
           {/* <Route path="" element={<Ui />} /> */}
@@ -77,11 +77,15 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/listparki
         </Route>
       </Route>
 
+    <Route element={<PrivateRoutes  availableroles={["admin"]}/>}>
     <Route path='/admin' element={<AdminSidebar/>}>
       <Route path='profile' element={<AdminProfile/>}></Route>
       <Route path='login' element={<Login/>}></Route>
     </Route>
+    </Route>
     
+    
+    <Route element={<PrivateRoutes  availableroles={["provider"]}/>}>
     <Route path='/provider' element={<ProviderSidebar setSearchActiveBooking={setSearchActiveBooking}/>}>
     <Route path="" element={<CommonUiHome/>}/>
     <Route path='contact' element={<CommonUiContact/>}/>
@@ -90,6 +94,8 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/listparki
       <Route path='listparkingdetails' element={<ListParkingArea/>}/>
       <Route path='activebooking' element={<ActiveBooking SearchActiveBooking={SearchActiveBooking}/>}/>
     </Route>
+    </Route>
+    
     
 
     <Route path='/resetpassword/:token' element={<ResetPassword/>}/>

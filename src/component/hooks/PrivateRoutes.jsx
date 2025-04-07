@@ -10,7 +10,7 @@ const useAuth = () => {
       const role = localStorage.getItem("role");
   
       if (id) {
-        setAuthState({ isLoggedin: true, role});
+        setAuthState({ isLoggedin: true, role:role});
       }
       setLoading(false);
     }, []);
@@ -18,14 +18,21 @@ const useAuth = () => {
     return { ...authState, loading };
   };
   
-  const PrivateRoutes = () => {
+  const PrivateRoutes = ({availableroles}) => {
     const auth = useAuth();
   
     if (auth.loading) {
       return <h1>Loading...</h1>; // Prevents redirection before auth state is set
     }
-  
-    return auth.isLoggedin ? <Outlet /> : <Navigate to="/login" />;
+    if(!auth.isLoggedin){
+      return <Navigate to="/login"/>
+    }
+
+    if(availableroles.includes(auth.role)){
+      return <Outlet/>
+    }else{
+      return <Navigate to="/login"/>
+    }
   };
 
   export default PrivateRoutes;
