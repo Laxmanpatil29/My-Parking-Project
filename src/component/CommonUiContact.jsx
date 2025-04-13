@@ -155,11 +155,6 @@ const submitHandler=async(data)=>{
           <div >
             <input type="submit" className="px-6 py-2 w-96 mt-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" value="Submit" />
           </div>
-
-          
-
-
-          
           </form>
       </div>
     <Footer/>

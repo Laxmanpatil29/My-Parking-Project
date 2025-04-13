@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Bounce, toast, ToastContainer } from 'react-toastify'
+
 
 export const ParkingDetails = () => {
   const navigate=useNavigate()
@@ -17,8 +17,6 @@ export const ParkingDetails = () => {
       console.log(res)
       console.log(res.data)
       setparkingdetails(res.data.data)
-     
-      
     } catch(err){
       console.error("the error is:- ",err)
 
@@ -44,25 +42,15 @@ export const ParkingDetails = () => {
       available_spots:parkingdetails.available_spots,
       price_per_hour:parkingdetails.price_per_hour,
       type:parkingdetails.type,
-      features:parkingdetails.features
+      features:parkingdetails.features,
+      providerId:parkingdetails.providerId
+
     }
     navigate('book', { state: {parkingData:areaDetails } });
   }
   return (
   <div className='text-center'>
-    <ToastContainer
-            position="top-center"
-            autoClose={2500}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-            transition={Bounce}
-            />
+   
     <div>
       <h1>perticular parking lot details</h1>
       <h4>Parking Details</h4>

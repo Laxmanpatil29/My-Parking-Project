@@ -1,0 +1,7 @@
+.custom-toast {
+    max-width: unset; /* remove max limit */
+    width: auto;
+    padding: 16px;
+    font-size: 16px;
+    word-break: break-word;
+  }

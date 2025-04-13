@@ -1,22 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import "../assets/Navbar.css"
 
 export const Navbar = () => {
+  const handleClick=()=>{
+    window.scrollTo(0,0)
+  }
   return (
-   <nav class='nav1' >
+   <nav class='nav1' >  
 
      <Link to='/'> <img id="logo" src="src/assets/LOGO.png" alt="" /></Link> 
             <div className="item">
 
-          <Link  class="component" to="/">Home</Link>
-          <Link class="component"  to="/about">About</Link>
-          <Link class="component" to="/services">Services</Link>
-          <Link class="component" to="/contact">Contact Us</Link>
+          <Link  class="component" to="/" onClick={handleClick}>Home</Link>
+          <Link class="component"  to="/about" onClick={handleClick}>About</Link>
+          <Link class="component" to="/services" onClick={handleClick}>Services</Link>
+          <Link class="component" to="/contact" onClick={handleClick}>Contact Us</Link>
 
 
           {/* <form class="search">
-            <input  id="s-text" class='input' type="text" placeholder='Search' />
+            <input  id="s-text" class='input' type="text" pla ceholder='Search' />
             <button id="s-btn">search</button>
           </form> */}
 

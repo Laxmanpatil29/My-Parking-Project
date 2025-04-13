@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-export const ActiveBooking = () => {
+export const AllBookings = () => {
 
   
   const [SearchActiveBooking, setSearchActiveBooking] = useState("");
@@ -9,23 +9,14 @@ export const ActiveBooking = () => {
 
 
   const activeParkings=async()=>{
-     const providerId=localStorage.getItem("id")
-    const res=await axios.get(`/book/getallactivebookingbyproviderid?providerId=${providerId}`)
+     
+    const res=await axios.get("/book/getallbooking")
     console.log(res.data)
     setactiveParking(res.data.data)
     console.log(activeParking)
   }
 
-//   const deleteBookings=async(id)=>{
-//     try{
-//       const res=await axios.delete("/book/cancelbook/"+id)
-//       console.log(res.data)
-  
-//       activeParkings()
-//  }catch(err){
-//   console.log("not working this button",err)
-//  }
-//   }
+
 
   useEffect(() => {
     activeParkings()
@@ -48,7 +39,7 @@ export const ActiveBooking = () => {
    
     <div className='text-center'>
         <h1>
-            Active Booking 
+            Active All Booking
         </h1>
     </div>
    

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export const ParkingLots = () => {
+export const AllParkingSpots = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [parkingAreas, setparkingAreas] = useState([])
  
@@ -47,9 +47,9 @@ export const ParkingLots = () => {
                 <img className='h-52 w-72 border rounded-lg '  src={parking.image_url || "default.jpg"}  alt={parking.name || "Unnamed Parking"} />
                 <p className='mt-2 text-white'>Name:- {parking.name || "Unnamed Parking"}</p>
                 <p className='text-white'>Price Per Hour:- {parking.price_per_hour || "N/A"}</p>
-                <Link  className='no-underline hover:no-underline '  to={`parkingdetails/${parking._id}`} key={parking.id}>
+                {/* <Link  className='no-underline hover:no-underline '  to={`parkingdetails/${parking._id}`} key={parking.id}>
                 <button className='border-1 rounded-lg px-2 text-lg font-bold bg-[#96b4b2] text-black mb-3 align-middle ml-[20%] '>Know More Details</button>
-               </Link>
+               </Link> */}
                </div>
                 </div>
            ))):(

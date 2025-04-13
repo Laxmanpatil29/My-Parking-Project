@@ -3,7 +3,7 @@ import "./assets/adminlte.css"
 import "./assets/adminlte.min.css"
 import { UserSidebar } from './component/layouts/UserSidebar'
 import { UserProfile } from './component/user/UserProfile'
-// import './App.css'
+import './App.css'
 import axios from 'axios'
 import { AdminProfile } from './component/admin/AdminProfile'
 import { AdminSidebar } from './component/layouts/AdminSidebar'
@@ -30,12 +30,19 @@ import { ActiveBooking } from './component/provider/ActiveBooking'
 import { ListParkingArea } from './component/provider/ListParkingArea' 
 import { AddYourArea } from './component/user/AddYourArea'
 import { IncomingInquiry } from './component/provider/IncomingInquiry'
+import ErrorPage from './component/common/ErrorPage'
+import { AdminDashboard } from './component/admin/AdminDashboard'
+import { AllBookings } from './component/admin/AllBookings'
+import { AllParkingSpots } from './component/admin/AllParkingSpots'
+import { AllUsers } from './component/admin/AllUsers'
+import { AllProviders } from './component/admin/AllProviders'
+import { Allinquiry } from './component/admin/Allinquiry'
 
 
 
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
+ 
   const [SearchActiveBooking, setSearchActiveBooking] = useState("");
 
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -52,7 +59,7 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
 
 {showNavbar && <Navbar />} {/* Conditionally render Navbar */}
   <Routes>
-       
+       <Route path='/*' element={<ErrorPage/>}/>
         <Route path="/" element={<CommonUi/>} />
         <Route path='/login' element={<Login/>}></Route> 
         <Route path='/' element={<CommonUiHome/>}></Route> 
@@ -63,8 +70,8 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
 
         
 
-    <Route element={<PrivateRoutes  availableroles={["user"]}/>}>
-        <Route path="/user" element={<UserSidebar  setSearchQuery={setSearchQuery}  />}>
+    {/* <Route element={<PrivateRoutes  availableroles={["user"]}/>}> */}
+        <Route path="/user" element={<UserSidebar/>}>
           <Route path="profile" element={<UserProfile />} />
           {/* <Route path="" element={<Ui />} /> */}
           <Route path="mybooking" element={<MyBooking/>}/>
@@ -72,31 +79,37 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
           <Route path='about' element={<CommonUiAbout/>}/>
           <Route path='services' element={<CommonUiServices/>}/>
           <Route path='contact' element={<CommonUiContact/>}/>
-          <Route path='parkinglots' element={<ParkingLots searchQuery={searchQuery}/>}/>
+          <Route path='parkinglots' element={<ParkingLots/>}/>
           <Route path='parkinglots/parkingdetails/:id' element={<ParkingDetails/>}/>
           <Route path='parkinglots/parkingdetails/:id/book' element={<Booking/>}/>
         </Route>
-      </Route>
+      {/* </Route> */}
 
-    <Route element={<PrivateRoutes  availableroles={["admin"]}/>}>
+    {/* <Route element={<PrivateRoutes  availableroles={["admin"]}/>}> */}
     <Route path='/admin' element={<AdminSidebar/>}>
-      <Route path='profile' element={<AdminProfile/>}></Route>
-      <Route path='login' element={<Login/>}></Route>
+       <Route path='profile' element={<AdminProfile/>}/>
+       <Route path='inquiry' element={<Allinquiry/>}/>
+      <Route path='' element={<AdminDashboard/>}/>
+      <Route path='bookings' element={<AllBookings/>}/>
+      <Route path='parkingspots' element={<AllParkingSpots/>}/>
+      <Route path='users' element={<AllUsers/>}/>
+      <Route path='providers' element={<AllProviders/>}></Route>
+      
     </Route>
-    </Route>
+    {/* </Route> */}
     
     
-    <Route element={<PrivateRoutes  availableroles={["provider"]}/>}>
-    <Route path='/provider' element={<ProviderSidebar setSearchActiveBooking={setSearchActiveBooking}/>}>
+    {/* <Route element={<PrivateRoutes  availableroles={["provider"]}/>}> */}
+    <Route path='/provider' element={<ProviderSidebar/>}>
     <Route path="" element={<CommonUiHome/>}/>
     <Route path='contact' element={<CommonUiContact/>}/>
       <Route path='profile' element={<ProviderProfile/>}></Route>
       <Route path='login' element={<Login/>}></Route>
       <Route path='listparkingdetails' element={<ListParkingArea/>}/>
-      <Route path='activebooking' element={<ActiveBooking SearchActiveBooking={SearchActiveBooking}/>}/>
+      <Route path='activebooking' element={<ActiveBooking/>}/>
       <Route path='incominginquiry' element={<IncomingInquiry/>}/>
     </Route>
-    </Route>
+    {/* </Route> */}
     
     
 

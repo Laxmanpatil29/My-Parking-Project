@@ -10,8 +10,22 @@ export const AddYourArea = () => {
 
     const submitHandler=async(data)=>{
         try{
+
+            const formData = new FormData()
+            formData.append("name", data.name)
+            formData.append("location", data.location)
+            formData.append("capacity", data.capacity)
+            formData.append("available_spots", data.available_spots)
+            formData.append("price_per_hour", data.price_per_hour)
+            formData.append("type", data.type)
+            formData.append("features", data.features)
+            formData.append("image_url", data.image_url[0]) // Send image file
             
-            const res=await axios.post("/provider/addparkingarea",data)
+            const res=await axios.post("/provider/addparkingarea",formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
             areasuccess()
               console.log(res)
               console.log(res.data)
@@ -99,12 +113,22 @@ export const AddYourArea = () => {
                             {errors.name?.message}
                         </span>
                     </div>
-                    <div >
+                    {/* <div >
                         <input  className='w-[25rem] border-1 border-black h-8 rounded-md pl-3'type="url" name="" id="" placeholder='Enter Parking Image Url' {...register("image_url",validationSchema.imageValidator)}/>
                         <span className='text-red-500 ml-2'>
                             {errors.image_url?.message}
                         </span>
-                    </div>
+                    </div> */}
+
+               <div>
+            <input 
+             className='w-[25rem] border-1 border-black h-8 rounded-md pl-3 bg-white' 
+             type="file" 
+             accept="image/*" 
+            {...register("image_url",validationSchema.imageValidator)}
+            />
+   
+               </div>
                     <div >
                         <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Location' {...register("location",validationSchema.locationValidator)} />
                          <span className='text-red-500 ml-2'>

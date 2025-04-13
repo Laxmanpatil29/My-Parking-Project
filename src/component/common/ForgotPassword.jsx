@@ -45,7 +45,7 @@ export const ForgotPassword = () => {
     transition={Bounce}
     />
 
-       <form onSubmit={handleSubmit(submitHandler)}  className=' absolute left-[30%] top-20 border-3 border-black h-auto w-[30rem] bg-[#FDFAF6]'>
+       <form onSubmit={handleSubmit(submitHandler)}  className=' absolute left-[30%] top-20 border-3 border-black h-auto w-[30rem] bg-[#FDFAF6] rounded-lg'>
         <h1 className='text-[#1B56FD]'>Forgot your password?</h1>
        <p className='font-bold'>please enter your email address. you will recieve a link to create a new passsword via email.</p>
        <label>Email <span className='text-red-500'>*</span></label> <br />

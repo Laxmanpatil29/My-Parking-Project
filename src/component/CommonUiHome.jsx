@@ -27,7 +27,7 @@ export const CommonUiHome = () => {
         Secure your spot before you arrive."
         </h4> 
 		  <div className='mt-6'>
-			<Link  class='works' className='ml-[0%]  hover:no-underline no-underline border-2 bg-[#23adc0]  p-1 text-white font-bold ' to="https://www.youtube.com/@laxmanpatil9842">How It Works</Link>
+			<Link  class='works' className='ml-[0%]  hover:no-underline no-underline bg-[#23adc0]  p-1 text-white font-bold rounded-lg px-2x ' to="https://www.youtube.com/@laxmanpatil9842">How It Works</Link>
 		  </div>
 
           </div>
@@ -46,7 +46,7 @@ export const CommonUiHome = () => {
                 </p>
                 <h5>Easy Booking Process</h5>
                 <p>Reserve your parking <br />
-                  spot in just a few clicks — <br />
+                  spot in just a few clicks, <br />
                    no more circling around!</p>
               </div>
 

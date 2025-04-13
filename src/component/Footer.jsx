@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {
+
+    const handleClick=()=>{
+      window.scrollTo(0,0)
+    }
   return (
     // <div style={{textAlign:'center',height:"35px",width:"100vw",position:'fixed',bottom:'0px',backgroundColor:'black',color:'white'}}>laxmanpatil2345@gmail.com </div>
 <div className='bg-[#AFDDE5] w-full'>
@@ -20,10 +24,10 @@ export const Footer = () => {
             </div>
             <div class="footer-helpful-links">
               <ul className='flex flex-col'>
-                <Link to='about'>About Us</Link>
-                <Link to='team'>Our Team </Link>
-                <Link to="products">Our Products</Link>
-                <Link  to='contact'>Contact Us</Link>
+                <Link to='/about' onClick={handleClick}>About Us</Link>
+                <Link to='team' onClick={handleClick} >Our Team </Link>
+                <Link to="products" onClick={handleClick}>Our Products</Link>
+                <Link  to='contact' onClick={handleClick}>Contact Us</Link>
               </ul>
             </div>
           </div>

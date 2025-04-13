@@ -2,8 +2,11 @@ import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'react-router-dom'
+import { Bounce, toast, ToastContainer } from 'react-toastify'
 
 export const Booking = () => {
+  
+  const addsuccess=()=>toast("your slot booked successfully")
   const location =useLocation();
   const areadata=location.state?.parkingData
 const {register,handleSubmit,formState:{errors}}=useForm()
@@ -23,21 +26,37 @@ const  submitHandler=async(data)=>{
     type:areadata?.type,
     features:areadata?.features, 
     userId:userId,
+    providerId:areadata.providerId,
+    payment_status:"pending"
   }
 
   console.log("Full data of booking",fullData)
   const res=await axios.post("/book/addbook",fullData)
   // console.log("the full data of booking ",res.fullData)
+  addsuccess()
   
 }
   return (
     <div className='text-center  bg-[#F1EFEC] '>
+       <ToastContainer
+            position="top-center"
+            autoClose={2500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce}
+            />
       <form className="my-2 flex flex-col gap-3" onSubmit={handleSubmit(submitHandler)}>
         <h1 >Add Vehicle Detail</h1>
         <div>
-          <label className='font-bold'>Vehicle Category</label> <br />
-          <select className='w-[17rem]' defaultValue=""  {...register("vehicle_category")}>  
-          <option value="" disabled>Select-Category</option>
+          <label className='font-bold'>Vehicle Category <span className='text-red-500'>*</span></label> <br />
+          <select className='w-[17rem]' defaultValue=""  {...register("vehicle_category")} required>  
+          <option value="" disabled>Select-Category </option>
             <option value="Two Wheeler">Two wheeler</option>
             <option value="Three Wheeler">Three wheeler</option>
             <option value="Four Wheeler">Four wheeler</option>

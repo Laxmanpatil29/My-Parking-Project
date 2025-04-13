@@ -1,89 +1,133 @@
-import React, { useState } from 'react'
-import img from "../../assets/profile-2.jpg"
+import React, { useEffect, useState } from 'react'
+import IMG from "./../../assets/profile-2.jpg"
+import axios from 'axios'
 
 export const UserProfile = () => {
 
-  const [userData, setuserData] = useState({
-    name:'Laxman Patil',
-    image:img,
-    email:'laxman9974@gmail.com',
-    phone:'+91 8849949974',
-    address:{
-      line1:'301-305,surbhi complex,nr.municipal market',
-      line2:'CG road,Navrangpura,Ahmedabad',
-    },
-    gender:'Male',
-    DOB:'2003-09-15',
+  const [formData, setformData] = useState({
+    userName: '',
+    email: '',
+    contact: '',
+    address: 'Not Provided',  
+    gender: '',
+    dob: '',
+     profileImg:" "
   })
 
-    const [isEdit, setisEdit] = useState(false)
+  const profileDetails=async()=>{
+    const userId=localStorage.getItem("id")
+
+    const res=await axios.get('/user/user/'+userId)
+    setformData(res.data.data)
+    console.log(res.data.data)
+  }
+
+  useEffect(() => {
+   profileDetails() 
+  }, [])
+  
+  const handleChange = (e) => {
+    const { name, value,files } = e.target;
+    if (name === "profileImg") {
+      setformData(prev => ({ ...prev, profileImg: files[0] })); // store file object
+    } else {
+      setformData(prev => ({ ...prev, [name]: value }));
+    }
+  } 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userId = localStorage.getItem("id");
+    try {
+
+      const formDataUpdate = new FormData()
+    formDataUpdate.append("userName", formData.userName)
+    formDataUpdate.append("email", formData.email)
+    formDataUpdate.append("contact", formData.contact)
+    formDataUpdate.append("address", formData.address)
+    formDataUpdate.append("gender", formData.gender)
+    formDataUpdate.append("dob", formData.dob)
+    if (formData.profileImg) {
+      formDataUpdate.append("profileImg", formData.profileImg)
+    }
+
+console.log(formData.profileImg)
+      const res = await axios.put('/user/user/' + userId, formDataUpdate,{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+
+      alert('Profile updated successfully!');
+      console.log('Updated data is', res.data);
+      console.log(formData.profileImg)
+    } catch (err) {
+      console.error('Error updating profile:', err);
+      alert('Failed to update profile.');
+    } 
+  }
 
   return (
-    <div className='max-w-lg mx-[10%] mb-[10%] flex flex-col gap-2 text-sm'> <br />
-      <img className='bg-green-950 h-36 w-36 rounded-full' src={userData.image} alt="" />
+   <div className='bg-[#FDFAF6]'>
+   <div className="justify-center text-center border-2 h-auto ">
+     
 
-      {
-        isEdit 
-        ? <input className='bg-gray-50 text-3xl font-medium max-w-100 mt-4' type="text" value={userData.name} onChange={(e)=> setuserData(prev=>({...prev,name:e.target.value}))} />
-        : <p className='font-medium text-3xl text-neutral-800 mt-4'>{userData.name}</p>
-      }
-
-      <hr className='bg-zinc-400 h-[1px] border-none' />
-
-      <div>
-        <p className='text-neutral-800 underline mt-3'>CONTACT INFORMATION</p>
-        <div className='grid grid-cols-[1fr_2fr] gap-y-2.5 mt-3 text-neutral-700'>
-          <p className='font-medium'>Email Id: </p>
-            <p className='text-blue-500'>{userData.email}</p>
-          <p className='font-medium'>Phone:</p>
-            {
-              isEdit 
-              ? <input className='bg-gray-100 max-w-52' type="text" value={userData.phone} onChange={(e)=> setuserData(prev=>({...prev,phone:e.target.value}))} />
-              : <p className='text-blue-400'>{userData.phone}</p>
-            }
-            <p className='font-medium'>Address:</p>
-            {
-              isEdit 
-              ? <p>
-                <input className='bg-gray-100' value={userData.address.line1} onChange={(e)=> setuserData(prev=>({...prev,address, line1:e.target.value}))} type="text" /> <br />
-                <input className='bg-gray-100' value={userData.address.line2} onChange={(e)=> setuserData(prev=>({...prev,address, line2:e.target.value}))} type="text" />
-              </p>              
-              : <p className='text-gray-500'>{userData.address.line1} <br />
-                    {userData.address.line2}
-              </p>
-            }
+ 
+      <form className='my-6' onSubmit={handleSubmit}>
+        <div className='flex  ml-[40%] mt-4'> 
+      <h1>Hi,{formData.userName || 'User'}</h1>  
+      {/* <button className='bg-[#57B4BA] px-2 h-10 ml-10 rounded-lg font-bold'>Update Profile</button>    */}
         </div>
-      </div>
-
-      <div>
-        <p className='text-neutral-800 underline mt-3'>BASIC INFORMATION</p>
-        <div className='grid grid-cols-[1fr_2fr] gap-y-2.5 mt-3 text-neutral-700'>
-          <p className='font-medium'>Gender:</p>
-          {
-              isEdit 
-              ? <select className='max-w-20 bg-gray-100' value={userData.gender} onChange={(e)=> setuserData(prev=>({...prev,gender:e.target.value}))}>
-                  <option value="Male">Male</option>
-                  <option value="Felmale">Female</option>
-              </select>
-              : <p className='text-gray-400'>{userData.gender}</p>
-            }
-            <p className='font-medium'>Birthdate:</p>
-            {
-              isEdit 
-              ? <input className='max-w-28 bg-gray-100' type="date" value={userData.DOB} onChange={(e)=> setuserData(prev=>({...prev,DOB:e.target.value}))} />
-              : <p className='text-gray-400'>{userData.DOB}</p>
-            }
+            <div className='flex mt-3'> 
+              <img src={formData.profileImg instanceof File 
+    ? URL.createObjectURL(formData.profileImg)
+    : formData.profileImg 
+      ? `http://localhost:3000/uploads/${formData.profileImg}` 
+      : IMG }alt="Profile" name='profileImg'  accept="image/*" className='border-2 bg-white h-28 w-28 rounded-full ml-[45%]'></img>
+             <label className='h-8 w-8 rounded-full border-1 border-black mt-20 -ml-8 bg-white pt-0.5 ' >
+               <i  class="fa-solid  fa-camera"></i>
+              <input type="file" accept="image/*" className="hidden" name='profileImg' onChange={handleChange} />
+            </label>
+           </div>
+        <div className='flex gap-5  ml-[35%]'>
+          <input type="text" placeholder='Enter Your Name' name="userName" className='border-1 pl-2 h-10 w-[28rem] rounded-md' value={formData.userName ||' '} onChange={handleChange}/>
+          {/* <input type="text" placeholder='Enter LastName' className='border-1 pl-2 h-10 w-[13rem] rounded-md '/> */}
         </div>
-      </div>
 
-      <div className='mt-10'>
-            {
-              isEdit
-              ?<button className='border-2 border-green-950 px-8 py-2 rounded-full hover:bg-green-950 hover:text-white transition-all' onClick={()=> setisEdit(false)}>Save</button>
-              :<button className='border-2 border-green-950 px-8 py-2 rounded-full hover:bg-green-950 hover:text-white transition-all' onClick={()=> setisEdit(true)}>Edit</button>
-            }
-      </div>
-    </div>
-  )
+        <div className='mt-3'>
+          <input type="email" placeholder='Enter Email Id'   name="email" className='border-1 pl-2 w-[30%] h-10 rounded-md '  value={formData.email || ' '} onChange={handleChange}/>
+        </div>
+
+        <div  className='mt-3'>
+          <input type="text" placeholder='Enter Phone Number'  name="contact" className='border-1 pl-2 w-[30%] h-10 rounded-md ' value={formData.contact || ' '} onChange={handleChange}/>
+        </div>
+
+        <div  className='mt-3'>
+          <input type="text" placeholder='Enter Address' value={formData.address || ' '} name="address" className='border-1 pl-2 w-[30%] h-10 rounded-md ' onChange={handleChange} />
+        </div>
+
+        <div  className='mt-3 '>
+          <label>Gender:-</label>
+          <select  name="gender" value={formData.gender || ' '} className='ml-4 border-2 w-[13rem] rounded-md pl-2'onChange={handleChange}>
+            <option value="">Selact-gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div  className='mt-3'>
+          <label>DOB</label>
+          <input    name="dob" type="date"  value={formData.dob ||' '}className='ml-4 border-2 w-[13rem] rounded-md pl-2' onChange={handleChange}/>
+        </div>
+
+        <div className='mt-3 '>
+          <button type='submit' className='bg-[#60B5FF] w-[10rem] h-8 rounded-lg text-xl'>Save</button>
+        </div>
+      </form>
+    
+   </div>
+   </div>
+  )
 }
 

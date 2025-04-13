@@ -129,7 +129,7 @@ export const ParkingObject =() => {
           const res=await axios.post("/provider/addparkingarea",parkingAreas)
           console.log(res)
           console.log(res.data)
-          console.log(res.status)
+          
         
         }catch(err){
          console.log("the error is: ",err)
