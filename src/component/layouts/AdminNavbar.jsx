@@ -20,7 +20,7 @@ export const AdminNavbar = ({setSearchActiveBooking}) => {
 
 
   return (
-  <>
+  <div className="fixed top-0 left-0 right-0 z-50 bg-teal-900  shadow-sm">
   <nav className=" bg-[#0E2D33] text-white h-[70px] p-4 flex items-center justify-between" >
       <div className="flex items-center ml-8">
         <Link to=''> <img className='w-16' src={Profile} alt="" /></Link> 
@@ -28,11 +28,11 @@ export const AdminNavbar = ({setSearchActiveBooking}) => {
 
 
       <div className="absolute ml-[20%] text-xl  flex gap-10 ">
-          <Link className=" text-center no-underline text-white hover:no-underline "  to="" >Dashbord</Link>
-          <Link className=" text-center no-underline text-white hover:no-underline "  to="bookings" >Bookings</Link> 
+          <Link className=" text-center no-underline text-white hover:no-underline " to="" >Dashbord</Link>
+          <Link className=" text-center no-underline text-white hover:no-underline " to="bookings" >Bookings</Link> 
           <Link className=" text-center no-underline text-white hover:no-underline " to="parkingspots" >Parking Spots</Link>
-          <Link className=" text-center no-underline text-white hover:no-underline" to="users" >Users</Link>
-          <Link className=" text-center no-underline text-white hover:no-underline" to="providers" >Providers</Link>
+          <Link className=" text-center no-underline text-white hover:no-underline " to="users" >Users</Link>
+          <Link className=" text-center no-underline text-white hover:no-underline " to="providers" >Providers</Link>
       </div>
 
       <div className='flex items-center gap-4'>
@@ -55,7 +55,7 @@ export const AdminNavbar = ({setSearchActiveBooking}) => {
     
   </nav>
   
-  </>
+  </div>
   
   )
 }

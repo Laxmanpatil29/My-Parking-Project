@@ -22,7 +22,7 @@ export const UserNavbar = () => {
 
 
   return (
-  <>
+  <div className="fixed top-0 left-0 right-0 z-50 bg-teal-900 shadow-lg">
   <nav className="relative bg-[#0E2D33] text-white h-16 p-4 flex items-center justify-between " >
       <div className="flex items-center ml-8">
         <Link to=''> <img className='w-16' src={Profile} alt="" /></Link> 
@@ -48,8 +48,6 @@ export const UserNavbar = () => {
       
 
       <div className='flex items-center gap-4'>
-                  
-                
                  <div className='flex items-center gap-2 cursor-pointer group relative'>
                      <p className=' border-1 rounded-full w-7 text-center mt-3'><i class="fa-solid fa-user" ></i></p> 
                       <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
@@ -60,15 +58,12 @@ export const UserNavbar = () => {
                         </div>
                       </div>
                     </div>
-                    
-
-                            
-              
+      
       </div>
     
   </nav>
   
-  </>
+  </div>
   
   )
 }

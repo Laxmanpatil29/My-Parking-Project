@@ -20,7 +20,7 @@ export const ProviderNavbar = ({setSearchActiveBooking}) => {
 
 
   return (
-  <>
+  <div className="fixed top-0 left-0 right-0 z-50 bg-teal-900  shadow-sm">
   <nav className=" bg-[#0E2D33] text-white h-[70px] p-4 flex items-center justify-between" >
       <div className="flex items-center ml-8">
         <Link to=''> <img className='w-16' src={Profile} alt="" /></Link> 
@@ -72,7 +72,7 @@ export const ProviderNavbar = ({setSearchActiveBooking}) => {
     
   </nav>
   
-  </>
+  </div>
   
   )
 }

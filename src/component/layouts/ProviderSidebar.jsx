@@ -7,7 +7,7 @@ export const ProviderSidebar = () => {
    <>
    <ProviderNavbar/>
    
-  <main class='app-main'>
+  <main class='app-main pt-16'>
     <Outlet></Outlet>
   </main>
 

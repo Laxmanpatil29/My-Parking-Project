@@ -88,7 +88,7 @@ try{
     <>
     <div> 
         <ToastContainer
-            position="top-center"
+            position="top-center" 
             autoClose={800}
             hideProgressBar={false}
             newestOnTop={false}

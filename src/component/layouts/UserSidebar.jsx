@@ -70,7 +70,7 @@ export const UserSidebar = ({setSearchQuery}) => {
         </aside> */}
   
 
-  <main className='app-main'>
+  <main className='app-main pt-16'>
     <Outlet></Outlet>
 
   </main>

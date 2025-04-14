@@ -18,6 +18,7 @@ export const ProviderProfile = () => {
     const userId=localStorage.getItem("id")
 
     const res=await axios.get('/user/user/'+userId)
+    
     setformData(res.data.data)
     console.log(res.data.data)
   }

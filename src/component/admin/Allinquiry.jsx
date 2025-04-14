@@ -14,9 +14,11 @@ export const Allinquiry = () => {
     }
 
     const deleteInquiry=async(id)=>{
+      const confirmDelete = window.confirm("Are you sure you want to remove this inquiry?")
+      if(confirmDelete){
         const res=await axios.delete("/contactUs/deletecontactdetails/"+id)
         console.log(res)
-        incomingInquiry()
+        incomingInquiry()}
     }
 
     useEffect(() => {

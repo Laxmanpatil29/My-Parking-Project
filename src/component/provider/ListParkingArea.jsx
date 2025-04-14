@@ -70,7 +70,7 @@ export const ListParkingArea = () => {
             }
         },
         priceValidator:{
-            required:{
+            required:{  
                 value:true,
                 message:"Please enter the price per hour"
             }
@@ -89,7 +89,7 @@ export const ListParkingArea = () => {
         }
     }
   return (
-    <div className='text-center bg-[#F1EFEC]  py-6'>
+    <div className='text-center bg-[#F1EFEC]  py-6 flex items-center justify-center '>
         <ToastContainer
             position="top-center"
             autoClose={1500}
@@ -104,73 +104,87 @@ export const ListParkingArea = () => {
             transition={Bounce}
             />
 
-        <form onSubmit={handleSubmit(submitHandler)}>
-               <div className='text-center'>
-                <h1>Add Parking Area</h1>
+        <form onSubmit={handleSubmit(submitHandler)} >
+
+            <div className=' w-full bg-white p-10 rounded-3xl shadow-lg'>
+               <div>
+                <h1 className='text-3xl font-extrabold text-center text-gray-800 mb-8'>Add Parking Area</h1>
               </div>
 
-               <div className='mt-4 flex flex-col gap-3'>
-                    <div>
-                        <input  className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Name' {...register("name",validationSchema.nameValidator)} />
-                        <span className='text-red-500 ml-2'>
-                            {errors.name?.message}
-                        </span>
-                    </div>
-                    {/* <div >
-                        <input  className='w-[25rem] border-1 border-black h-8 rounded-md pl-3'type="url" name="" id="" placeholder='Enter Parking Image Url' {...register("image_url",validationSchema.imageValidator)}  onChange={(e) => setImageUrl(e.target.value)} />
-                        <span className='text-red-500 ml-2'>
-                            {errors.image_url?.message}
-                        </span>
-                    </div> */}
+                 <div className='mt-4 flex  gap-3'>
+                    <p className='flex flex-col gap-4'>
 
-     <div>
-        <input 
-        className='w-[25rem] border-1 border-black h-8 rounded-md pl-3 bg-white' 
-        type="file" 
-        accept="image/*" 
-        {...register("image_url",validationSchema.imageValidator)}
-    />
-   
-</div>
+                <div>
+                <input   className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Name' {...register("name",validationSchema.nameValidator)} />
+                <span className='text-red-500 ml-2'>
+                {errors.name?.message}
+                </span>
+                </div>
+                    
+                <div>
+                  <input 
+                  className="w-[25rem] px-2 py-2 text-lg bg-white border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500"
+                  type="file" 
+                  accept="image/*" 
+                  {...register("image_url",validationSchema.imageValidator)}
+                  />
+                   </div>
+
                     <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Location' {...register("location",validationSchema.locationValidator)} />
+                        <input  className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Location' {...register("location",validationSchema.locationValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.location?.message}
                         </span>
-                    </div>  <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Capacity' {...register("capacity",validationSchema.capacityValidator)} />
+                    </div> 
+                    
+                     <div >
+                        <input  className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Capacity' {...register("capacity",validationSchema.capacityValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.capacity?.message}
                         </span>
-                    </div>  <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Available Spots' {...register("available_spots",validationSchema.availableSpotValidator)} />
+                    </div>  
+                    </p>
+
+                    <p className='flex flex-col gap-4'>
+
+                        <div >
+                        <input  className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" placeholder='Enter The Parking Available Spots' {...register("available_spots",validationSchema.availableSpotValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.available_spots?.message}
                         </span>
-                    </div>  <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Price Per Hour' {...register("price_per_hour",validationSchema.priceValidator)} />
+                    </div>
+                    
+                      <div >
+                        <input className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Price Per Hour' {...register("price_per_hour",validationSchema.priceValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.price_per_hour?.message}
                         </span>
                     </div> 
+
                      <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Type' {...register("type",validationSchema.typeValidator)} />
+                        <input  className="w-[25rem] px-2 py-2 text-lg border rounded-lg hover:outline-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Type' {...register("type",validationSchema.typeValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.type?.message}
                         </span>
                     </div>
+
                     <div >
-                        <input className='w-[25rem] border-1 border-black h-8 rounded-md pl-3' type="text" placeholder='Enter The Parking Feature' {...register("features",validationSchema.featureValidator)} />
+                        <input  className="w-[25rem] px-2 py-2 text-lg border rounded-lg  hover:border-none hover:ring-2 hover:ring-teal-500" type="text" placeholder='Enter The Parking Feature' {...register("features",validationSchema.featureValidator)} />
                          <span className='text-red-500 ml-2'>
                             {errors.features?.message}
                         </span>
                     </div>
-                    <div >
-                        <button className='border-2 border-black rounded-lg px-2 py-1 bg-[#48A6A7] text-white' >Add Details</button>
-                    </div>
+
+                    </p>
+
                </div>
 
-        </form>
+                    <div >
+                        <button className='border-2 border-black rounded-lg px-2 py-1 bg-emerald-600 hover:bg-emerald-700 text-white' >Add Details</button>
+                    </div>
+
+               </div>
+        </form> 
 
 
     </div>
