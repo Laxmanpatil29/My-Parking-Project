@@ -14,9 +14,13 @@ export const IncomingInquiry = () => {
     }
 
     const deleteInquiry=async(id)=>{
+      const confirmDelete = window.confirm("Are you sure you want to remove this inquiry?")
+      if(confirmDelete){
+
         const res=await axios.delete("/contactUs/deletecontactdetails/"+id)
         console.log(res)
         incomingInquiry()
+      }
     }
 
     useEffect(() => {
@@ -40,7 +44,7 @@ export const IncomingInquiry = () => {
         </h1>
     </div> 
 
-    <div className='flex gap-2 mb-2 right-0 ml-[80%] ' >
+    <div className='flex gap-2 mb-2 right-0 ml-[80%] '>
       <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black border border-black '  type="text" placeholder='Search'  onChange={(e) => setsearch(e.target.value)} />
       <button className='border-1 border-black  px-1 h-10 w-10 rounded '><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
@@ -48,7 +52,7 @@ export const IncomingInquiry = () => {
 
       <table className='table table-dark'>
         <thead>
-          <tr className='text-center'>
+          <tr className='text-center text-xl'>
             <th>Name</th>
             <th>Email Id</th>
             <th>Phone no</th>

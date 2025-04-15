@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 
@@ -11,6 +11,7 @@ export const AddYourArea = () => {
 
     const submitHandler=async(data)=>{
         try{
+            const providerid=localStorage.getItem("id")
             const formData = new FormData()
             formData.append("name", data.name)
             formData.append("location", data.location)
@@ -20,6 +21,7 @@ export const AddYourArea = () => {
             formData.append("type", data.type)
             formData.append("features", data.features)
             formData.append("image_url", data.image_url[0]) // Send image file
+            formData.append("providerId",providerid)
             
 
             

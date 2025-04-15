@@ -204,7 +204,7 @@ export const MyBooking = () => {
                <button className='border-2 bg-[blue] px-2  text-white font-bold rounded-lg'  onClick={()=>handleCreateOrder(bookings)}
               >pay online</button>):
          (
-          <button className='border-2 bg-[blue] w-28 h-10 rounded-lg text-white font-bold'
+          <button className='border-2 bg-[green] w-28 h-10 rounded-lg text-white font-bold'
          > Already Paid </button>
          )
           }

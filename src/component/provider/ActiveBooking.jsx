@@ -60,7 +60,7 @@ export const ActiveBooking = () => {
     <div className="flex justify-center items-center">
 
       <table className='table table-dark'>
-        <thead>
+        <thead >
           <tr>
             <th>Parking id</th>
             <th>Owner name</th>

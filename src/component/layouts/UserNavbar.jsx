@@ -54,6 +54,7 @@ export const UserNavbar = () => {
                         <div className='min-w-40 bg-stone-100 rounded flex flex-col gap-4 p-3  '>
                           <p onClick={()=>navigate('profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
                           <p onClick={()=>navigate('mybooking')} className=' hover:text-black cursor-pointer'>My Booking</p>
+                          <p onClick={()=>navigate('incomingbooking')} className=' hover:text-black cursor-pointer'>Active Booking</p>
                           <p onClick={logoutUser} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
                         </div>
                       </div>

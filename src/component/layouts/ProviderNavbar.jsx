@@ -27,19 +27,15 @@ export const ProviderNavbar = ({setSearchActiveBooking}) => {
       </div>
 
 
-      <div className="absolute ml-[10%] text-xl  flex gap-6 ">
-          <Link className=" text-center no-underline text-white "  to="" >Home </Link>
-          {/* <Link className=" text-center no-underline text-white hover:text-red-600 "  to="about" >About</Link> */}
-          {/* <Link className=" text-center no-underline text-white hover:text-red-600 " to="services" >Services</Link> */}
+      <div className="absolute ml-[20%] text-xl  flex gap-10 ">
+          <Link className=" text-center no-underline text-white hover:no-underline "  to="" >Dashboard</Link>
+          <Link className=" text-center no-underline text-white hover:text-red-600 hover:no-underline "  to="activebooking" >Bookings</Link>
+          <Link className=" text-center no-underline text-white hover:text-red-600 hover:no-underline " to="incominginquiry" >Inquiry</Link>
           {/* <Link className=" text-center no-underline text-white hover:text-red-600 " to="contact" >Contact</Link> */}
       </div>
 
-      <div className='flex ml-[60%] gap-2' >
-      <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black  '  type="text" placeholder='Search' onChange={(e) => setSearchActiveBooking(e.target.value)}/>
-      <button className='border-1 border-gray-300 px-1 h-10 w-10 rounded'><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
 
-      <div className=' absolute ml-[55%] border-3 border-white px-2 py-2 rounded-xl bg-[#23adc0]'>
+      <div className=' absolute ml-[80%] border-3 border-white px-2 py-2 rounded-xl bg-[#23adc0]'>
         <Link to='listparkingdetails'><button className=' text-black font-bold'>List Parking Spot</button>  </Link>
       </div>
 
@@ -56,8 +52,6 @@ export const ProviderNavbar = ({setSearchActiveBooking}) => {
                       <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
                         <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
                           <p onClick={()=>navigate('profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
-                          <p onClick={()=>navigate('activebooking')} className=' hover:text-black cursor-pointer'>Active Booking</p>
-                          <p onClick={()=>navigate('incominginquiry')} className=' hover:text-black cursor-pointer'>All Inquiry</p>
                           <p onClick={logoutUser} className=' text-gray-700 hover:text-black cursor-pointer'>Logout</p>
                         </div>
                       </div>

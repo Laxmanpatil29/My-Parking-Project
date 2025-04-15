@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 export const AllUsers = () => {
+  const [search, setsearch] = useState("")
   const [users, setusers] = useState([])
   const allUser=async()=>{
 
@@ -30,9 +31,23 @@ const deleteUser=async(id)=>{
 useEffect(() => {
  allUser()
 }, [])
+
+const filterUser = search
+? users.filter((user) => 
+  (user.userName &&
+    user.userName?.toLowerCase().includes(search.toLowerCase()))
+  )
+:users 
+
   return (
-    <div className='mt-4'>
+    <div className='bg-[#F8F4E1] pt-4'>
     <h1 className='text-center font-bold'>All Users</h1>
+
+    <div className='flex gap-2 mb-2 right-0 ml-[80%] ' >
+      <input className='w-60 h-10 pl-2 text-xl rounded-xl text-black border border-black '  type="text" placeholder='Search'  onChange={(e) => setsearch(e.target.value)} />
+      <button className='border-1 border-black  px-1 h-10 w-10 rounded '><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div> 
+
     <div>
       <table className='table table-dark'>
         <thead className='text-center'>
@@ -44,7 +59,9 @@ useEffect(() => {
             </tr>
         </thead>
         <tbody className='text-center'>
-        { users.map((user)=>(
+
+      {filterUser.length>0?(
+        filterUser?.map((user)=>(
         <tr>
           <td>{user.userName}</td>
           <td>{user.email}</td>
@@ -55,8 +72,9 @@ useEffect(() => {
             </button>
           </td>
         </tr>
-             ))}
-
+             ))):
+             <p className="text-center text-xl text-white" >User Not Found</p>
+            }
         </tbody>
       </table>
     </div>
