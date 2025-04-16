@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import IMG from "./../../assets/profile-2.jpg"
+import IMG from "./../../assets/default-profile.png"
 import axios from 'axios'
 
 export const ProviderProfile = () => {

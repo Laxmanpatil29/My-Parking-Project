@@ -5,7 +5,7 @@ import { Footer } from './Footer'
 export const CommonUiAbout = () => {
   return (
     <>
-    <div className='mt-[75px] text-center'>
+    <div className='mt-[75px] text-center '>
       <h1 >About Us</h1>
       <h3>Welcome to "My Parking App"– your trusted partner for easy, reliable, and secure parking solutions.</h3>
         <div className='pl-5 mt-4 py-4 bg-[#F1EFEC]'>

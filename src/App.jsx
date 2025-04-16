@@ -37,6 +37,9 @@ import { AllParkingSpots } from './component/admin/AllParkingSpots'
 import { AllUsers } from './component/admin/AllUsers'
 import { AllProviders } from './component/admin/AllProviders'
 import { Allinquiry } from './component/admin/Allinquiry'
+import { IncomingBooking } from './component/user/IncomingBooking'
+import { ProviderDashboard } from './component/provider/ProviderDashboard'
+import { UserHome } from './component/user/UserHome'
 
 
 
@@ -66,26 +69,27 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
         <Route path='/about' element={<CommonUiAbout/>}></Route> 
         <Route path='/services' element={<CommonUiServices/>}></Route> 
         <Route path='/contact' element={<CommonUiContact/>}></Route> 
-        <Route path='/addparking' element={<AddYourArea/>}></Route> 
 
         
 
-    {/* <Route element={<PrivateRoutes  availableroles={["user"]}/>}> */}
+    <Route element={<PrivateRoutes  availableroles={["user"]}/>}>
         <Route path="/user" element={<UserSidebar/>}>
           <Route path="profile" element={<UserProfile />} />
-          {/* <Route path="" element={<Ui />} /> */}
+
+        <Route path='addparking' element={<AddYourArea/>}></Route> 
           <Route path="mybooking" element={<MyBooking/>}/>
-          <Route path="" element={<CommonUiHome/>}/>
+          <Route path="" element={<UserHome/>}/>
           <Route path='about' element={<CommonUiAbout/>}/>
           <Route path='services' element={<CommonUiServices/>}/>
           <Route path='contact' element={<CommonUiContact/>}/>
           <Route path='parkinglots' element={<ParkingLots/>}/>
+          <Route path='incomingbooking' element={<IncomingBooking/>}/>
           <Route path='parkinglots/parkingdetails/:id' element={<ParkingDetails/>}/>
           <Route path='parkinglots/parkingdetails/:id/book' element={<Booking/>}/>
         </Route>
-      {/* </Route> */}
+      </Route>
 
-    {/* <Route element={<PrivateRoutes  availableroles={["admin"]}/>}> */}
+    <Route element={<PrivateRoutes  availableroles={["admin"]}/>}>
     <Route path='/admin' element={<AdminSidebar/>}>
        <Route path='profile' element={<AdminProfile/>}/>
        <Route path='inquiry' element={<Allinquiry/>}/>
@@ -96,12 +100,12 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
       <Route path='providers' element={<AllProviders/>}></Route>
       
     </Route>
-    {/* </Route> */}
+    </Route>
     
     
-    {/* <Route element={<PrivateRoutes  availableroles={["provider"]}/>}> */}
+    <Route element={<PrivateRoutes  availableroles={["provider"]}/>}>
     <Route path='/provider' element={<ProviderSidebar/>}>
-    <Route path="" element={<CommonUiHome/>}/>
+    <Route path='' element={<ProviderDashboard/>}/>
     <Route path='contact' element={<CommonUiContact/>}/>
       <Route path='profile' element={<ProviderProfile/>}></Route>
       <Route path='login' element={<Login/>}></Route>
@@ -109,7 +113,7 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
       <Route path='activebooking' element={<ActiveBooking/>}/>
       <Route path='incominginquiry' element={<IncomingInquiry/>}/>
     </Route>
-    {/* </Route> */}
+    </Route>
     
     
 
@@ -120,8 +124,7 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
   </Routes>
   
 
-    {/*  </div>
-     </body> */}
+   
     </div>
   )
 }

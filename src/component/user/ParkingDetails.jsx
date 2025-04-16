@@ -64,7 +64,7 @@ export const ParkingDetails = () => {
             <h4>Location: {parkingdetails.location}</h4>
             <p>Capacity: {parkingdetails.capacity}</p>
             <p>available Spots: {parkingdetails.available_spots}</p>
-            <p> price Per Hour: {parkingdetails.price_per_hour}</p>
+            <p> price Per Hour: {parkingdetails.price_per_hour} Rs</p>
             <p>Type: {parkingdetails.type}</p>
             <p>Features: {parkingdetails.features}</p>
             

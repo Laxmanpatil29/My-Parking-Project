@@ -19,9 +19,10 @@ export const ForgotPassword = () => {
 
     const submitHandler=async(data)=>{
         const res=await axios.post("/user/forgetpassword",data)
-        console.log(res)
-        emailsuccess()
 
+            emailsuccess()
+        
+        console.log(res)
         console.log("errors",errors)
 
     }
@@ -33,7 +34,7 @@ export const ForgotPassword = () => {
     <div className="text-center relative">  
     <ToastContainer
     position="top-center"
-    autoClose={1500}
+    autoClose={1000}
     hideProgressBar={false}
     newestOnTop={false}
     closeOnClick={false}

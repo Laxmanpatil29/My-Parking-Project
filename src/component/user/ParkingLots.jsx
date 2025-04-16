@@ -46,7 +46,7 @@ export const ParkingLots = () => {
                <div className=' mt-4'>
                 <img className='h-52 w-72 border rounded-lg '  src={parking.image_url || "default.jpg"}  alt={parking.name || "Unnamed Parking"} />
                 <p className='mt-2 text-white'>Name:- {parking.name || "Unnamed Parking"}</p>
-                <p className='text-white'>Price Per Hour:- {parking.price_per_hour || "N/A"}</p>
+                <p className='text-white'>Price Per Hour:- {parking.price_per_hour || "N/A"} Rs</p>
                 <Link  className='no-underline hover:no-underline '  to={`parkingdetails/${parking._id}`} key={parking.id}>
                 <button className='border-1 rounded-lg px-2 text-lg font-bold bg-[#96b4b2] text-black mb-3 align-middle ml-[20%] '>Know More Details</button>
                </Link>

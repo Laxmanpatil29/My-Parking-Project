@@ -75,7 +75,7 @@ export const ActiveBooking = () => {
 
           </tr>
         </thead>
-        <tbody>
+        <tbody >
         {filterParkingdetails.length > 0 ? (  
       filterParkingdetails?.map((booking)=>(
           

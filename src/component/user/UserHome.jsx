@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "../assets/home.css"
-import { Footer } from './Footer'
+import { Footer } from '../Footer'
+import "../../assets/home.css"
 
-
-export const CommonUiHome = () => {
+export const UserHome = () => {
   return (
   <>
-<div class="main mt-0">
+<div class="main mt-0 ">
         <section class="content1" style={{backgroundImage:"url('src/assets/bg-img.jpg')", zIndex:'1',width:'100%'}}> {/*content 1 start here */}
 
           <div class="overlay">
@@ -104,6 +103,20 @@ export const CommonUiHome = () => {
              <h2>Our Vision</h2>
              <p className='font-serif text-xl'>"To be the most trusted platform for modern parking <br />solutions — empowering people with seamless access to <br /> space, time, and movement."</p>
              </div>
+        </div>
+
+        <div className='bg-[#fffcf8] w-[100%] py-20 text-start pl-[15%] flex gap-[20%]'>
+          <div>
+          <h1>List Your Parking Space,Now !</h1>
+          <p className='font-medium'>“Turn your unused parking spot into steady income. List with us today.”</p>
+          </div>
+          <div>
+            <Link to='addparking'>
+            <button className='font-serif justify-center rounded-lg shadow-2xl px-2 py-2 mt-6 font-bold bg-[#1B56FD] text-white'>LET'S START</button>
+            </Link>
+          </div>
+
+
         </div>
 <Footer/>
   </div>

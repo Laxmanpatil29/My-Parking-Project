@@ -1,5 +1,5 @@
 import axios from 'axios'
-import IMG from "./../../assets/profile-2.jpg"
+import IMG from "./../../assets/default-profile.png"
 import React,{ useEffect,useState} from 'react'
 
 export const AdminProfile = () => {
