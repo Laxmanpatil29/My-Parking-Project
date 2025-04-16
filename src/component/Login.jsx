@@ -53,20 +53,24 @@ try{
             const res = await axios.post("/user/login",data);
             console.log(res.data.data)
             loginsuccess();
-            setTimeout(() => {
-    
-            }, 2000 );
+          
             localStorage.setItem("id", res.data.data._id)   
             localStorage.setItem("role",res.data.data.roleId.name)  
             localStorage.setItem("name",res.data.data.userName)
             console.log(res.data.data.roleId.name)
 
             if(res.data.data.roleId.name==="user"){
-                navigate("/user ")
+                setTimeout(() => 
+                    navigate("/user ")
+                ,2000);
             }else if(res.data.data.roleId.name==="provider"){
+                setTimeout(() => 
                     navigate("/provider")
+                ,2000);   
             }else{
-                navigate("/admin")
+                setTimeout(() => 
+                    navigate("/admin")  
+                ,2000);
             }
 
             
@@ -89,7 +93,7 @@ try{
     <div> 
         <ToastContainer
             position="top-center" 
-            autoClose={800}
+            autoClose={1500}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick={false}
