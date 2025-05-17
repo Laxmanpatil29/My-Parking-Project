@@ -1,0 +1,186 @@
+// export const parkinglots=[
+//     {
+//       id:"parking1",
+//         no:'1',
+//         name: "AMC Multi-Level Parking",
+//         image:img1,
+//         pricePerHour:10
+//     },
+//     {
+//       id:"parking2",
+//         no:'2',
+//         name: "AmdaPark - Science City Road",
+//         image:img2,
+//         pricePerHour:8
+//     },
+//     {
+//       id:"parking3",
+//       no:'3',
+//         name: "SVP Airport Parking",
+//         image:img3,
+//         pricePerHour:85
+//     },
+//     {
+//       id:"parking4",
+//       no:'4',
+//         name: "ISCON Mega Mall Parking",
+//         image:img4,
+//         pricePerHour:5
+//     },
+//     {
+//       id:"parking5",
+//       no:'5',
+//         name: "Narendra Modi Stadium Parking",
+//         image:img5,
+//         pricePerHour:20
+//     },
+//     {
+//       id:"parking6",
+//       no:'6',
+//         name: "Gota Overbridge Parking",
+//         image:img6,
+//         pricePerHour:7
+//     },
+//     {
+//       id:"parking7",
+//       no:'7',
+//         name: "Vastrapur Lake Parking",
+//         image:img7,
+//         pricePerHour:6
+//     },
+//     {
+//       id:"parking8", 
+//        no:'8',
+
+//         name: "CG Road Parking",
+//         image:img8,
+//         pricePerHour:10
+//     },
+//     {
+//       id:"parking9",
+//       no:'9',
+//         name: "Maninagar Railway Station Parking",
+//         image:img9,
+//         pricePerHour:12
+//     },
+//     {
+//       id:"parking10",
+//       no:'10',
+//         name: "Kankaria Lake Parking",
+//         image:img10,
+//         pricePerHour:8
+//     },
+// ]
+
+// export const parkingAreas= [
+//     {
+//       _id:"parking1",
+//       name: "AMC Multi-Level Parking",
+//       image:img1,
+//       location: "Lal Darwaja, Ahmedabad",
+//       capacity: 500,
+//       availableSpots: 120,
+//       pricePerHour: 10,
+//       type: "Multi-Level",
+//       features: "CCTV, 24/7 Security, Handicap Accessible"
+//     },
+//     {
+//       _id:"parking2",
+//       name: "AmdaPark - Science City Road",
+//       image:img2,
+//       location: "Science City Road, Ahmedabad",
+//       capacity: 300,
+//       availableSpots: 80,
+//       pricePerHour: 8,  
+//       type: "Open Plot Parking",
+//       features: "EV Charging, CCTV, Security Personnel"
+//     },
+//     {
+//       _id:"parking3",
+//       name: "SVP Airport Parking",
+//       image:img3,
+//       location: "SVPI Airport, Ahmedabad",
+//       capacity: 1000,
+//       availableSpots: 300,
+//       pricePerHour: 85,
+//       type: "Airport Parking",
+//       features: "Long-Term Parking, VIP Parking, Shuttle Service"
+//     },
+//     {
+//       _id:"parking4",
+//       name: "ISCON Mega Mall Parking",
+//       image:img4,
+//       location: "SG Highway, Ahmedabad",
+//       capacity: 400,
+//       availableSpots: 150,
+//       pricePerHour: 5,
+//       type: "Underground Parking",
+//       features: "Valet Service, Handicap Accessible, Security Cameras"
+//     },
+//     {
+//       _id:"parking5",
+//       name: "Narendra Modi Stadium Parking",
+//       image:img5,
+//       location: "Motera, Ahmedabad",
+//       capacity: 16000,
+//       availableSpots: 5000,
+//       pricePerHour: 20,
+//       type: "Event Parking",
+//       features: "Online Booking, Private Parking, CCTV Monitoring"
+//     },
+//     {
+//       _id:"parking6",
+//       name: "Gota Overbridge Parking",
+//       image:img6,
+//       location: "Gota, Ahmedabad",
+//       capacity: 250,
+//       availableSpots: 90,
+//       pricePerHour: 7,
+//       type: "Street Parking",
+//       features: "Security Personnel, 24/7 Access, Bike Parking"
+//     },
+//     {
+//       _id:"parking7",
+//       name: "Vastrapur Lake Parking",
+//       image:img7,
+//       location: "Vastrapur, Ahmedabad",
+//       capacity: 200,
+//       availableSpots: 60,
+//       pricePerHour: 6,
+//       type: "Open Parking",
+//       features: "Near Public Park, Security Cameras, Bike & Car Parking"
+//     },
+//     {
+//       _id:"parking8",
+//       name: "CG Road Parking",
+//       image:img8,
+//       location: "CG Road, Ahmedabad",
+//       capacity: 350,
+//       availableSpots: 100,
+//       pricePerHour: 10,
+//       type: "Street Parking",
+//       features: "Shopping Area, Night Parking Allowed, Security"
+//     },
+//     {
+//       _id:"parking9",
+//       name: "Maninagar Railway Station Parking",
+//       image:img9,
+//       location: "Maninagar, Ahmedabad",
+//       capacity: 500,
+//       availableSpots: 180,
+//       pricePerHour: 12,
+//       type: "Railway Station Parking",
+//       features: "24/7 Open, Near Metro, CCTV Surveillance"
+//     },
+//     {
+//       _id:"parking10",
+//       name: "Kankaria Lake Parking",
+//       image:img10,
+//       location: "Kankaria, Ahmedabad",
+//       capacity: 400,
+//       availableSpots: 140,
+//       pricePerHour: 8,
+//       type: "Tourist Parking",
+//       features: "Near Amusement Park, EV Charging, Security Guards"
+//     },
+//   ]

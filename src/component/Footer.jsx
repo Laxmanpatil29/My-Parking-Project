@@ -22,7 +22,7 @@ export const Footer = () => {
                <h5 className='text-white'>Quick Links</h5>
             </div>
             <div class="footer-helpful-links">
-              <ul className='flex flex-col'>
+              <ul className='flex flex-col '>
                 <Link to='/about' onClick={handleClick}>About Us</Link>
                 <Link to='team' onClick={handleClick} >Our Team </Link>
                 <Link to="products" onClick={handleClick}>Our Products</Link>
@@ -60,7 +60,7 @@ export const Footer = () => {
             Nikol, <br />  Ahmedabad - 382430, Gujarat, India. </p>
             <p className='text-white mr-5'><span><i class="fas fa-phone"></i></span> +91 7418596352</p>
             
-            <p className='d-flex gap-3 text-white ml-5'><span><i class="far fa-envelope"></i></span> <a  className='no-underline' href="mailto:showmyparking@gmail.com"><span className='text-white '>myparking@gmail.com</span></a></p>
+            <p className='d-flex gap-3 text-white '><span><i class="far fa-envelope"></i></span> <a  className='no-underline' href="mailto:showmyparking@gmail.com"><span className='text-white '>myparking@gmail.com</span></a></p>
            
           </div>
         </div>

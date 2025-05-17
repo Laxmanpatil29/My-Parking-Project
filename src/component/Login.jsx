@@ -167,7 +167,7 @@ try{
 
          <div>
             <label className='font-bold'>Roles:-</label>
-            <select className='mb-2 w-20' {...register("roleId")}>
+            <select className='mb-2 w-[10rem] rounded-md pl-1' {...register("roleId")}>
                 <option value="67ea169d0b27d76db25ade9e">User</option>
                 <option value="67ea16c20b27d76db25adea0">Provider</option>
                 <option value="67ea16e70b27d76db25adea2">Admin</option>

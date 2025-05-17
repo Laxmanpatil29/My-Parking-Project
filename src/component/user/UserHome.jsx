@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Footer } from '../Footer'
 import "../../assets/home.css"
+import { Footer } from '../Footer'
 
 export const UserHome = () => {
   return (
@@ -26,7 +26,7 @@ export const UserHome = () => {
         Secure your spot before you arrive."
         </h4> 
 		  <div className='mt-6'>
-			<Link  class='works' className='ml-[0%]  hover:no-underline no-underline bg-[#23adc0]  p-1 text-white font-bold rounded-lg px-2x ' to="/services" >How It Works</Link>
+			<Link  class='works' className='ml-[0%]  hover:no-underline no-underline bg-[#23adc0]  p-1 text-white font-bold rounded-lg px-2x ' to="services" >How It Works</Link>
 		  </div>
 
           </div>

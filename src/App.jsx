@@ -63,7 +63,7 @@ const showNavbar = ['/', '/about', '/contact', '/services', '/login','/addparkin
 {showNavbar && <Navbar />} {/* Conditionally render Navbar */}
   <Routes>
        <Route path='/*' element={<ErrorPage/>}/>
-        <Route path="/" element={<CommonUi/>} />
+        {/* <Route path="/" element={<CommonUi/>} /> */}
         <Route path='/login' element={<Login/>}></Route> 
         <Route path='/' element={<CommonUiHome/>}></Route> 
         <Route path='/about' element={<CommonUiAbout/>}></Route> 
